@@ -137,17 +137,6 @@ export default function StudentResponsibilitiesPage() {
                 </ul>
                 <p className="mt-4">In such cases, unused package lessons may be refunded at the individual lesson rate minus a $50 administrative fee.</p>
               </section>
-
-              <section>
-                <h2 className="text-2xl font-bold text-brand-primary mb-4">Vehicle and Insurance</h2>
-                <ul className="list-disc list-inside space-y-2 ml-4">
-                  <li>All training vehicles are fully insured with commercial liability coverage</li>
-                  <li>Vehicles have dual brake controls for instructor safety</li>
-                  <li>Vehicles are inspected and maintained per NYS DMV requirements</li>
-                  <li>Students are covered under our insurance during lessons</li>
-                  <li>Road test vehicle is provided as part of package or for additional fee</li>
-                </ul>
-              </section>
             </article>
 
             <motion.div
@@ -166,13 +155,13 @@ export default function StudentResponsibilitiesPage() {
                   Book Your First Lesson
                 </a>
                 <a
-                  href="tel:+17185550199"
+                  href="tel:+19177377623"
                   className="inline-flex items-center gap-2 px-6 py-3 border-2 border-white/30 text-white font-medium rounded-lg hover:bg-white/10 transition-colors"
                 >
                   <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                   </svg>
-                  Call Now: (718) 555-0199
+                  Call Now: (917) 737-7623
                 </a>
               </div>
             </motion.div>

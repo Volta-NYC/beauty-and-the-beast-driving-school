@@ -15,7 +15,6 @@ const taxServices = [
     title: "Individual Tax Preparation",
     description: "Complete federal and NY state tax return preparation for all filing statuses.",
     features: ["Form 1040 & NY IT-201", "ITIN applications & renewals", "EIN applications for businesses", "Self-employed / Schedule C", "Investment income reporting", "Education credits & deductions"],
-    price: "Starting at $150",
     cta: "Get Quote",
     href: "/contact",
   },
@@ -24,7 +23,6 @@ const taxServices = [
     title: "Business Tax Services",
     description: "Comprehensive tax compliance for small businesses and self-employed individuals.",
     features: ["LLC, S-Corp, C-Corp returns", "Partnership returns (Form 1065)", "Quarterly estimated payments", "Payroll tax compliance", "Sales tax filings", "1099 preparation"],
-    price: "Starting at $300",
     cta: "Get Quote",
     href: "/contact",
   },
@@ -33,9 +31,8 @@ const taxServices = [
     title: "Online Filing via 1040.com",
     description: "Secure e-filing through our partnered platform with guided assistance.",
     features: ["Federal & state e-filing", "Direct deposit refunds", "Real-time status tracking", "Prior year returns available", "Amendment filing support", "Mobile-friendly platform"],
-    price: "From $29.95",
     cta: "File Now",
-    href: "https://1040.com",
+    href: "https://www.1040.com/?did=154993",
     external: true,
   },
   {
@@ -43,7 +40,6 @@ const taxServices = [
     title: "Financial Calculators",
     description: "Free online tools to estimate your tax liability and plan ahead.",
     features: ["Tax bracket calculator", "Refund estimator", "Withholding calculator", "Self-employment tax tool", "Retirement contribution limits", "Education credit estimator"],
-    price: "Free",
     cta: "Try Calculators",
     href: "/tax-services#calculators",
   },
@@ -52,7 +48,6 @@ const taxServices = [
     title: "Tax Advisory Center",
     description: "Year-round tax planning and expert consultation for complex situations.",
     features: ["Tax planning strategies", "IRS correspondence help", "Audit representation", "Payment plan setup", "Offer in Compromise", "Innocent spouse relief"],
-    price: "Consultation $100/hr",
     cta: "Schedule Consultation",
     href: "/contact",
   },
@@ -61,7 +56,6 @@ const taxServices = [
     title: "Notary Public",
     description: "Licensed notary services available during all business hours.",
     features: ["Document notarization", "Loan signing agent", "Apostille coordination", "Affidavits & oaths", "Power of attorney", "Real estate documents"],
-    price: "$2 per signature",
     cta: "Walk-ins Welcome",
     href: "/services#notary",
   },
@@ -178,9 +172,6 @@ export default function TaxServicesPage() {
                         </li>
                       ))}
                     </ul>
-                    <div className="flex items-baseline gap-2 mb-4">
-                      <span className="text-2xl font-bold text-brand-primary">{service.price}</span>
-                    </div>
                     <Button variant="outline" size="sm" className="w-full" asChild>
                       <Link href={service.href} target={service.external ? "_blank" : undefined} rel={service.external ? "noopener noreferrer" : undefined}>
                         {service.cta}
@@ -232,7 +223,7 @@ export default function TaxServicesPage() {
                 ))}
               </ul>
               <Button variant="premium" size="lg" asChild>
-                <a href="https://1040.com" target="_blank" rel="noopener noreferrer">File Now on 1040.com</a>
+                <a href="https://www.1040.com/?did=154993" target="_blank" rel="noopener noreferrer">File Now on 1040.com</a>
               </Button>
             </div>
 
@@ -295,24 +286,49 @@ export default function TaxServicesPage() {
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
           >
             {[
-              { icon: Calculator, title: "Tax Bracket Calculator", desc: "Find your marginal and effective tax rates" },
-              { icon: FileText, title: "Refund Estimator", desc: "Project your federal and state refund amount" },
-              { icon: Shield, title: "Withholding Calculator", desc: "Adjust W-4 for accurate paycheck withholding" },
-              { icon: Cpu, title: "Self-Employment Tax", desc: "Calculate SE tax and quarterly payments" },
-            ].map((calc) => (
-              <motion.div key={calc.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-                <Card className="h-full border-slate-200 hover:border-brand-secondary/50 hover:shadow-lg transition-all duration-300 text-center">
-                  <CardContent className="p-6">
-                    <div className="w-14 h-14 rounded-xl bg-brand-secondary/10 flex items-center justify-center mx-auto mb-4">
-                      <calc.icon className="h-7 w-7 text-brand-secondary" aria-hidden="true" />
-                    </div>
-                    <CardTitle className="text-lg">{calc.title}</CardTitle>
-                    <CardDescription>{calc.desc}</CardDescription>
-                    <Button variant="outline" size="sm" className="mt-4 w-full" asChild>
-                      <Link href="/contact">Try It Free</Link>
-                    </Button>
-                  </CardContent>
-                </Card>
+              { category: "Paycheck & Benefits", calculators: [
+                { title: "How will payroll adjustments affect my take-home pay?", href: "https://www.calcxml.com/calculators/payroll-adjustments" },
+                { title: "Convert my salary to an equivalent hourly wage", href: "https://www.calcxml.com/calculators/salary-to-hourly" },
+                { title: "Convert my hourly wage to an equivalent annual salary", href: "https://www.calcxml.com/calculators/hourly-to-salary" },
+                { title: "What may my 401(k) be worth?", href: "https://www.calcxml.com/calculators/401k-value" },
+                { title: "What is the impact of increasing my 401(k) contribution?", href: "https://www.calcxml.com/calculators/401k-contribution-impact" },
+              ]},
+              { category: "Taxes", calculators: [
+                { title: "2022 Federal income tax estimator", href: "https://www.calcxml.com/calculators/federal-income-tax" },
+                { title: "Should I adjust my payroll withholdings?", href: "https://www.calcxml.com/calculators/payroll-withholding" },
+                { title: "How much self-employment tax will I pay?", href: "https://www.calcxml.com/calculators/self-employment-tax" },
+                { title: "How much of my social security benefit may be taxed?", href: "https://www.calcxml.com/calculators/social-security-tax" },
+                { title: "Tax refund estimator", href: "https://www.calcxml.com/calculators/tax-refund" },
+              ]},
+              { category: "Savings", calculators: [
+                { title: "Want to be a millionaire? - Find out how quickly it can be done!", href: "https://www.calcxml.com/calculators/millionaire" },
+                { title: "How long will it take to double my savings?", href: "https://www.calcxml.com/calculators/double-savings" },
+                { title: "How long until I reach my savings goal?", href: "https://www.calcxml.com/calculators/savings-goal" },
+                { title: "How much should I save to reach my goal?", href: "https://www.calcxml.com/calculators/save-to-reach-goal" },
+                { title: "Saving now vs. saving later", href: "https://www.calcxml.com/calculators/saving-now-vs-later" },
+              ]},
+              { category: "Retirement", calculators: [
+                { title: "How much will I need for retirement?", href: "https://www.calcxml.com/calculators/retirement-needs" },
+                { title: "When should I begin saving for retirement?", href: "https://www.calcxml.com/calculators/when-to-save-retirement" },
+                { title: "I'm retired, how long will my savings last?", href: "https://www.calcxml.com/calculators/retirement-savings-last" },
+                { title: "Social Security retirement income calculator", href: "https://www.calcxml.com/calculators/social-security-retirement" },
+                { title: "Compare a Roth 401(k) to a Traditional 401(K)", href: "https://www.calcxml.com/calculators/roth-vs-traditional-401k" },
+              ]},
+            ].map((cat, catIndex) => (
+              <motion.div key={cat.category} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+                <div className="mb-6">
+                  <h3 className="text-lg font-semibold text-brand-primary mb-4">{cat.category}</h3>
+                  <div className="space-y-3">
+                    {cat.calculators.map((calc, calcIndex) => (
+                      <motion.div key={calc.title} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: calcIndex * 0.05 }}>
+                        <a href={calc.href} target="_blank" rel="noopener noreferrer" className="block p-4 rounded-lg border border-slate-200 hover:border-brand-secondary/50 hover:shadow-lg transition-all duration-300 text-left">
+                          <p className="font-medium text-slate-900 group-hover:text-brand-secondary transition-colors">{calc.title}</p>
+                          <p className="text-xs text-slate-500 mt-1">Opens in calcxml.com →</p>
+                        </a>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
               </motion.div>
             ))}
           </motion.div>
@@ -439,131 +455,9 @@ export default function TaxServicesPage() {
         primaryText="Book Appointment"
         primaryHref="/contact"
         secondaryText="Call Now"
-        secondaryHref="tel:+17185550199"
+        secondaryHref="tel:+19177377623"
         variant="gradient"
       />
     </>
   )
-}
-
-const packages = [
-  {
-    name: "Starter Package",
-    lessons: "6 Lessons",
-    duration: "6 hours total",
-    price: "$420",
-    features: [
-      "6 hours behind-the-wheel",
-      "Free pickup & drop-off",
-      "Road test scheduling",
-      "Vehicle for road test",
-      "DMV paperwork help",
-    ],
-    cta: "Book Package",
-    popular: false,
-  },
-  {
-    name: "Standard Package",
-    lessons: "10 Lessons",
-    duration: "10 hours total",
-    price: "$650",
-    features: [
-      "10 hours behind-the-wheel",
-      "Free pickup & drop-off",
-      "Road test scheduling",
-      "Vehicle for road test",
-      "DMV paperwork help",
-      "5-hour pre-licensing class",
-    ],
-    cta: "Book Package",
-    popular: true,
-  },
-  {
-    name: "Complete Package",
-    lessons: "20 Lessons",
-    duration: "20 hours total",
-    price: "$1,200",
-    features: [
-      "20 hours behind-the-wheel",
-      "Free pickup & drop-off",
-      "Road test scheduling",
-      "Vehicle for road test",
-      "DMV paperwork help",
-      "5-hour pre-licensing class",
-      "Defensive driving course",
-      "Unlimited mock road tests",
-    ],
-    cta: "Book Package",
-    popular: false,
-  },
-]
-
-const individualLessons = [
-  {
-    name: "Single Lesson",
-    duration: "45 minutes",
-    price: "$75",
-    description: "Pay as you go. Perfect for skill refreshers or specific maneuver practice.",
-  },
-  {
-    name: "5-Lesson Bundle",
-    duration: "5 × 45 minutes",
-    price: "$350",
-    description: "Save $25. Ideal for targeted practice before your road test.",
-  },
-  {
-    name: "10-Lesson Bundle",
-    duration: "10 × 45 minutes",
-    price: "$650",
-    description: "Save $100. Best value for new drivers building confidence.",
-  },
-]
-
-const customPackageSteps = [
-  { step: 1, title: "Choose Hours", description: "Select 2-50 hours of instruction" },
-  { step: 2, title: "Set Schedule", description: "Pick days & times that work for you" },
-  { step: 3, title: "Add Extras", description: "Pre-licensing, defensive driving, road test" },
-  { step: 4, title: "Get Quote", description: "Instant pricing with no obligation" },
-]
-
-const defensiveDriving = {
-  title: "6-Hour NY Defensive Driving Course",
-  subtitle: "NYS DMV-approved Point & Insurance Reduction Program (PIRP). Complete online or in-person.",
-  price: 49,
-  benefits: [
-    "Reduce up to 4 points on your license",
-    "10% auto insurance discount for 3 years",
-    "NYS DMV approved (Course #NYDR-12345)",
-    "Certificate issued same day",
-    "No final exam required",
-    "Available in English & Spanish",
-  ],
-  details: [
-    "6-hour course (can be completed in multiple sessions)",
-    "Online: Self-paced, 30-day access",
-    "In-person: Saturday classes at our Bronx locations",
-    "Certificate electronically submitted to NYS DMV",
-    "Insurance discount applies to all vehicles on policy",
-    "Can be taken once every 18 months for point reduction",
-  ],
-}
-
-const roadTest = {
-  title: "DMV Road Test Scheduling & Preparation",
-  subtitle: "We handle the paperwork, schedule the appointment, and provide the vehicle.",
-  services: [
-    "DMV road test appointment booking",
-    "Vehicle provided with dual controls",
-    "Pre-test warm-up lesson included",
-    "Mock road test on actual test routes",
-    "Parallel parking practice area",
-    "Examiner expectations review",
-  ],
-  requirements: [
-    "Valid NYS learner permit",
-    "Completed 5-hour pre-licensing course (MV-278)",
-    "50 hours supervised driving (15 at night)",
-    "Supervising driver (age 21+) with valid license",
-    "Vehicle registration & insurance (we provide vehicle)",
-  ],
 }

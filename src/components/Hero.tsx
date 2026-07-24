@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 
 const stats = [
-  { value: "28+", label: "Years of Experience", icon: Award },
+  { value: "14+", label: "Years of Experience", icon: Award },
   { value: "15,000+", label: "Students Trained", icon: Star },
   { value: "98%", label: "Road Test Pass Rate", icon: CheckCircle },
   { value: "5,000+", label: "Tax Returns Filed", icon: Shield },
@@ -42,7 +42,7 @@ export default function Hero() {
             transition={{ delay: 0.2, duration: 0.5 }}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 mb-6 backdrop-blur-sm"
           >
-            <span className="text-sm font-medium text-white">Established 1995 • Bronx, NY</span>
+            <span className="text-sm font-medium text-white">Established 2011 • Bronx, NY</span>
             <span className="text-white/60">|</span>
             <span className="text-sm font-medium text-brand-accent">Licensed & Insured</span>
           </motion.div>

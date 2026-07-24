@@ -10,8 +10,54 @@ import CTA from "@/components/CTA"
 
 const packages = [
   {
-    name: "Beginner Package",
-    price: "$599",
+    name: "5-Hour Pre-Licensing Course",
+    price: "$65.00",
+    lessons: "Course",
+    duration: "5 hours",
+    features: [
+      "Mandatory NYS DMV classroom course",
+      "Certificate issued same day (MV-278)",
+      "Valid for 1 year",
+      "Offered weekly in English & Spanish",
+    ],
+    cta: "Select Package",
+    popular: false,
+  },
+  {
+    name: "20 Lesson Driving Package",
+    price: "$1,220.00",
+    lessons: "20 Lessons",
+    duration: "45 minutes each",
+    features: [
+      "20 x 45-minute lessons",
+      "Free pickup & drop-off",
+      "Road test scheduling",
+      "Vehicle for road test",
+      "DMV paperwork assistance",
+      "5-hour pre-licensing course included",
+    ],
+    cta: "Select Package",
+    popular: true,
+  },
+  {
+    name: "15 Lesson Driving Package",
+    price: "$1,040.00",
+    lessons: "15 Lessons",
+    duration: "45 minutes each",
+    features: [
+      "15 x 45-minute lessons",
+      "Free pickup & drop-off",
+      "Road test scheduling",
+      "Vehicle for road test",
+      "DMV paperwork assistance",
+      "5-hour pre-licensing course included",
+    ],
+    cta: "Select Package",
+    popular: false,
+  },
+  {
+    name: "10 Lesson Driving Package",
+    price: "$770.00",
     lessons: "10 Lessons",
     duration: "45 minutes each",
     features: [
@@ -25,35 +71,61 @@ const packages = [
     popular: false,
   },
   {
-    name: "Standard Package",
-    price: "$899",
-    lessons: "15 Lessons",
+    name: "7 Lesson Driving Package",
+    price: "$614.00",
+    lessons: "7 Lessons",
     duration: "45 minutes each",
     features: [
-      "15 x 45-minute lessons",
+      "7 x 45-minute lessons",
       "Free pickup & drop-off",
       "Road test scheduling",
       "Vehicle for road test",
       "DMV paperwork assistance",
-      "5-hour pre-licensing course included",
     ],
     cta: "Select Package",
-    popular: true,
+    popular: false,
   },
   {
-    name: "Premium Package",
-    price: "$1,199",
-    lessons: "20 Lessons",
+    name: "5 Lesson Driving Package",
+    price: "$505.00",
+    lessons: "5 Lessons",
     duration: "45 minutes each",
     features: [
-      "20 x 45-minute lessons",
+      "5 x 45-minute lessons",
       "Free pickup & drop-off",
       "Road test scheduling",
       "Vehicle for road test",
       "DMV paperwork assistance",
-      "5-hour pre-licensing course included",
-      "Defensive driving course included",
-      "Priority scheduling",
+    ],
+    cta: "Select Package",
+    popular: false,
+  },
+  {
+    name: "3 Lesson Driving Package",
+    price: "$396.00",
+    lessons: "3 Lessons",
+    duration: "45 minutes each",
+    features: [
+      "3 x 45-minute lessons",
+      "Free pickup & drop-off",
+      "Road test scheduling",
+      "Vehicle for road test",
+      "DMV paperwork assistance",
+    ],
+    cta: "Select Package",
+    popular: false,
+  },
+  {
+    name: "1 Lesson Driving Package",
+    price: "$290.00",
+    lessons: "1 Lesson",
+    duration: "45 minutes",
+    features: [
+      "1 x 45-minute lesson",
+      "Free pickup & drop-off",
+      "Road test scheduling available",
+      "Vehicle for road test available",
+      "DMV paperwork assistance",
     ],
     cta: "Select Package",
     popular: false,
@@ -62,46 +134,78 @@ const packages = [
 
 const individualLessons = [
   {
-    name: "Single Lesson",
-    price: "$75",
-    duration: "45 minutes",
-    description: "Perfect for skill refreshers or specific maneuver practice",
+    name: "2 Lessons",
+    price: "$136.00",
+    duration: "2 x 45 minutes",
+    description: "Save when you purchase two or more 45-minute driving lessons",
   },
   {
-    name: "5-Lesson Bundle",
-    price: "$350",
+    name: "3 Lessons",
+    price: "$204.00",
+    duration: "3 x 45 minutes",
+    description: "Save when you purchase two or more 45-minute driving lessons",
+  },
+  {
+    name: "4 Lessons",
+    price: "$272.00",
+    duration: "4 x 45 minutes",
+    description: "Save when you purchase two or more 45-minute driving lessons",
+  },
+  {
+    name: "5 Lessons",
+    price: "$340.00",
     duration: "5 x 45 minutes",
-    description: "Save $25 — great for targeted skill building",
+    description: "Save when you purchase two or more 45-minute driving lessons",
   },
   {
-    name: "10-Lesson Bundle",
-    price: "$650",
+    name: "6 Lessons",
+    price: "$408.00",
+    duration: "6 x 45 minutes",
+    description: "Save when you purchase two or more 45-minute driving lessons",
+  },
+  {
+    name: "7 Lessons",
+    price: "$476.00",
+    duration: "7 x 45 minutes",
+    description: "Save when you purchase two or more 45-minute driving lessons",
+  },
+  {
+    name: "8 Lessons",
+    price: "$544.00",
+    duration: "8 x 45 minutes",
+    description: "Save when you purchase two or more 45-minute driving lessons",
+  },
+  {
+    name: "9 Lessons",
+    price: "$612.00",
+    duration: "9 x 45 minutes",
+    description: "Save when you purchase two or more 45-minute driving lessons",
+  },
+  {
+    name: "10 Lessons",
+    price: "$680.00",
     duration: "10 x 45 minutes",
-    description: "Save $100 — ideal for new drivers building confidence",
+    description: "Save when you purchase two or more 45-minute driving lessons",
+  },
+  {
+    name: "Gift Cards",
+    price: "From $50.00",
+    duration: "Flexible",
+    description: "Perfect gift for new drivers. Available in any denomination from $50.",
   },
 ]
 
-const customPackageSteps = [
-  {
-    step: "01",
-    title: "Choose Your Hours",
-    description: "Select any number of 45-minute lessons",
-  },
-  {
-    step: "02",
-    title: "Pick Your Schedule",
-    description: "Weekdays, weekends, mornings, or evenings",
-  },
-  {
-    step: "03",
-    title: "Add Extras",
-    description: "Road test vehicle, pre-licensing course, defensive driving",
-  },
-  {
-    step: "04",
-    title: "Get Your Price",
-    description: "Instant quote with no hidden fees",
-  },
+const customPackageServices = [
+  { name: "5-Hour Pre-Licensing Course", price: "$65.00" },
+  { name: "45-Minute Driving Lesson", price: "$70.00" },
+  { name: "45-Minute Highway Lesson", price: "$90.00" },
+  { name: "30-Minute Driving Lesson (with pick-up/drop off)*", price: "$70.00" },
+  { name: "Regular Road Test Appointment", price: "$40.00" },
+  { name: "Rush Road Test Appointment", price: "$85.00" },
+  { name: "Car Rental for Road Test (New Rochelle, White Plains)", price: "$175.00" },
+  { name: "Car Rental for Road Test (Queens, Brooklyn)", price: "$200.00" },
+  { name: "Car Rental for Road Test (Bronx)", price: "$125.00" },
+  { name: "Gift Cards", price: "From $50.00" },
 ]
 
 const defensiveDriving = {
@@ -114,13 +218,14 @@ const defensiveDriving = {
     "Available online or in-person",
     "Complete in one day or multiple sessions",
   ],
-  price: "$49",
+  price: "$79.99",
   details: [
     "Meets NYS DMV requirements for point reduction",
     "10% insurance discount mandated by NY law",
     "Certificate accepted by all NY insurance companies",
     "No final exam — completion based on participation",
     "Available in English and Spanish",
+    "Register at btb.asi.asicourse.com",
   ],
 }
 
@@ -309,17 +414,17 @@ export default function DrivingSchoolPage() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, staggerChildren: 0.1 }}
-            className="grid grid-cols-1 md:grid-cols-4 gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
           >
-            {customPackageSteps.map((step) => (
-              <motion.div key={step.step} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-                <Card className="h-full border-slate-200 hover:border-brand-secondary/50 hover:shadow-lg transition-all duration-300 text-center">
+            {customPackageServices.map((service) => (
+              <motion.div key={service.name} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+                <Card className="h-full border-slate-200 hover:border-brand-secondary/50 hover:shadow-lg transition-all duration-300">
                   <CardContent className="p-6">
-                    <div className="w-16 h-16 rounded-full bg-brand-secondary/10 flex items-center justify-center mx-auto mb-4">
-                      <span className="text-2xl font-bold text-brand-secondary">{step.step}</span>
+                    <div className="flex justify-between items-start mb-4">
+                      <h4 className="font-medium text-slate-900">{service.name}</h4>
+                      <span className="text-2xl font-bold text-brand-primary">{service.price}</span>
                     </div>
-                    <CardTitle className="text-lg">{step.title}</CardTitle>
-                    <CardDescription>{step.description}</CardDescription>
+                    <p className="text-sm text-slate-500">Add to your custom package</p>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -336,6 +441,7 @@ export default function DrivingSchoolPage() {
             <Button variant="premium" size="xl" asChild>
               <Link href="/contact">Build My Package</Link>
             </Button>
+            <p className="text-xs text-slate-500 mt-4 max-w-md mx-auto">*30-minute lesson includes pick-up/drop-off. Car rental prices vary by test location.</p>
           </motion.div>
         </Container>
       </section>
@@ -372,9 +478,14 @@ export default function DrivingSchoolPage() {
                   </li>
                 ))}
               </ul>
-              <Button variant="accent" size="lg" asChild>
-                <Link href="/contact">Enroll Now</Link>
-              </Button>
+              <div className="flex flex-col sm:flex-row gap-4 mb-8">
+                <Button variant="accent" size="lg" asChild>
+                  <a href="https://btb.asi.asicourse.com" target="_blank" rel="noopener noreferrer">Register (English)</a>
+                </Button>
+                <Button variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10" asChild>
+                  <a href="https://btb.asi.asicourse.com" target="_blank" rel="noopener noreferrer">Registrarse (Español)</a>
+                </Button>
+              </div>
             </div>
 
             <div className="space-y-6">

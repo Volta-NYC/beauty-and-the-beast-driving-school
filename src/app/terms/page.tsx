@@ -57,7 +57,7 @@ export default function TermsPage() {
             className="max-w-4xl mx-auto"
           >
             <header className="mb-12">
-              <p className="text-slate-600">Last updated: January 15, 2024</p>
+              <p className="text-slate-600">Effective: March 1, 2022</p>
             </header>
 
             <article className="prose prose-slate max-w-none space-y-8">
@@ -157,8 +157,8 @@ export default function TermsPage() {
                   <p><strong>Beauty & The Beast Driving School / Porrata Tax Services</strong></p>
                   <p>909 E. 169th St, Bronx, NY 10459</p>
                   <p>847 Castle Hill Ave, Bronx, NY 10473</p>
-                  <p>Phone: (718) 555-0199</p>
-                  <p>Email: info@porratax.com</p>
+                  <p>Phone: (917) 737-7623 (169th St) / (347) 281-8032 (Castle Hill)</p>
+                  <p>Email: carmen@porratax.com / wilkin@porratax.com</p>
                 </address>
               </section>
             </article>

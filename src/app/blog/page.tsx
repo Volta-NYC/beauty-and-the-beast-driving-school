@@ -3,75 +3,10 @@
 import { Container } from "@/components/ui/container"
 import { motion } from "framer-motion"
 import Link from "next/link"
-import { Calendar, Clock, Tag, ArrowRight, Search, ChevronLeft, ChevronRight } from "lucide-react"
+import { Calendar, Clock, Tag, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-
-const blogPosts = [
-  {
-    slug: "ny-defensive-driving-benefits",
-    title: "NY Defensive Driving: Reduce Points & Save 10% on Insurance",
-    excerpt: "Learn how the 6-hour NYS DMV-approved Point & Insurance Reduction Program (PIRP) can remove up to 4 points from your license and guarantee a 10% auto insurance discount for 3 years.",
-    category: "Driving School",
-    date: "2024-12-15",
-    readTime: "5 min read",
-    image: "/blog/defensive-driving.jpg",
-  },
-  {
-    slug: "tax-prep-checklist-2024",
-    title: "Complete Tax Preparation Checklist for 2024 Filing Season",
-    excerpt: "Don't miss a deduction! Our comprehensive checklist covers everything you need to bring for individual and business tax preparation, including new 2024 tax law changes.",
-    category: "Tax Services",
-    date: "2024-12-10",
-    readTime: "7 min read",
-    image: "/blog/tax-checklist.jpg",
-  },
-  {
-    slug: "teen-driver-education-guide",
-    title: "Parent's Guide to Teen Driver Education in New York",
-    excerpt: "From learner permit to road test, we walk you through every step of the NYS Graduated Driver Licensing process. Includes supervised driving log tips and road test prep advice.",
-    category: "Driving School",
-    date: "2024-11-28",
-    readTime: "6 min read",
-    image: "/blog/teen-guide.jpg",
-  },
-  {
-    slug: "irs-problem-resolution",
-    title: "Owe the IRS? Don't Panic — Here's Your Action Plan",
-    excerpt: "Tax debt can be overwhelming, but you have options. We explain installment agreements, offers in compromise, penalty abatement, and when to seek professional help.",
-    category: "Tax Services",
-    date: "2024-11-15",
-    readTime: "8 min read",
-    image: "/blog/irs-help.jpg",
-  },
-  {
-    slug: "winter-driving-tips-bronx",
-    title: "Winter Driving Tips for Bronx Roads",
-    excerpt: "Stay safe on icy Bronx streets this winter. Our instructors share essential tips for driving in snow, ice, and reduced visibility conditions.",
-    category: "Driving School",
-    date: "2024-11-01",
-    readTime: "4 min read",
-    image: "/blog/winter-driving.jpg",
-  },
-  {
-    slug: "small-business-tax-deductions",
-    title: "Overlooked Small Business Tax Deductions for 2024",
-    excerpt: "From home office to vehicle expenses, many small business owners miss valuable deductions. Our tax advisors highlight the most commonly overlooked write-offs.",
-    category: "Tax Services",
-    date: "2024-10-20",
-    readTime: "6 min read",
-    image: "/blog/business-deductions.jpg",
-  },
-]
-
-const categories = [
-  "All",
-  "Driving School",
-  "Tax Services",
-  "Additional Services",
-  "Community",
-]
 
 export default function BlogPage() {
   return (
@@ -112,7 +47,7 @@ export default function BlogPage() {
               transition={{ delay: 0.4, duration: 0.6 }}
               className="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed"
             >
-              Expert advice on driving education, tax preparation, and community resources from our 28+ years serving the Bronx.
+              Expert advice on driving education, tax preparation, and community resources from our 14+ years serving the Bronx.
             </motion.p>
           </motion.div>
         </Container>
@@ -120,56 +55,21 @@ export default function BlogPage() {
 
       <section className="py-20 lg:py-32 bg-white" aria-labelledby="blog-heading">
         <Container>
-          <div className="flex flex-wrap items-center justify-between gap-4 mb-12">
-            <motion.h2
-              id="blog-heading"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-3xl sm:text-4xl font-bold text-brand-primary"
-            >
-              Latest Articles
-            </motion.h2>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="flex items-center gap-2"
-            >
-              <label htmlFor="blog-search" className="sr-only">Search articles</label>
-              <div className="relative">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" aria-hidden="true" />
-                <Input
-                  id="blog-search"
-                  type="search"
-                  placeholder="Search articles..."
-                  className="pl-10 pr-4 py-2 w-64"
-                />
-              </div>
-            </motion.div>
-          </div>
-
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
-            className="flex flex-wrap gap-2 mb-12"
-            role="group"
-            aria-label="Filter by category"
+            className="text-center max-w-3xl mx-auto mb-16"
           >
-            {categories.map((cat) => (
-              <motion.button
-                key={cat}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.1 }}
-                className="px-4 py-2 text-sm font-medium rounded-full bg-slate-100 text-slate-700 hover:bg-brand-secondary hover:text-white transition-colors"
-                aria-pressed={cat === "All"}
-              >
-                {cat}
-              </motion.button>
-            ))}
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-secondary/10 text-brand-secondary text-sm font-medium mb-6">Our Blog</span>
+            <h2 id="blog-heading" className="text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-primary text-balance mb-6">
+              Articles &{" "}
+              <span className="text-brand-secondary">Guides</span>
+            </h2>
+            <p className="text-lg text-slate-600 leading-relaxed">
+              Stay informed with our latest tips, guides, and updates for driving students and tax clients.
+            </p>
           </motion.div>
 
           <motion.div
@@ -179,7 +79,56 @@ export default function BlogPage() {
             transition={{ duration: 0.8, staggerChildren: 0.1 }}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
-            {blogPosts.map((post) => (
+            {[
+              {
+                slug: "ny-defensive-driving-benefits",
+                title: "NY Defensive Driving: Reduce Points & Save 10% on Insurance",
+                excerpt: "Learn how the 6-hour NYS DMV-approved Point & Insurance Reduction Program (PIRP) can remove up to 4 points from your license and guarantee a 10% auto insurance discount for 3 years.",
+                category: "Driving School",
+                date: "2024-12-15",
+                readTime: "5 min read",
+              },
+              {
+                slug: "tax-prep-checklist-2024",
+                title: "Complete Tax Preparation Checklist for 2024 Filing Season",
+                excerpt: "Don't miss a deduction! Our comprehensive checklist covers everything you need to bring for individual and business tax preparation, including new 2024 tax law changes.",
+                category: "Tax Services",
+                date: "2024-12-10",
+                readTime: "7 min read",
+              },
+              {
+                slug: "teen-driver-education-guide",
+                title: "Parent's Guide to Teen Driver Education in New York",
+                excerpt: "From learner permit to road test, we walk you through every step of the NYS Graduated Driver Licensing process. Includes supervised driving log tips and road test prep advice.",
+                category: "Driving School",
+                date: "2024-11-28",
+                readTime: "6 min read",
+              },
+              {
+                slug: "irs-problem-resolution",
+                title: "Owe the IRS? Don't Panic — Here's Your Action Plan",
+                excerpt: "Tax debt can be overwhelming, but you have options. We explain installment agreements, offers in compromise, penalty abatement, and when to seek professional help.",
+                category: "Tax Services",
+                date: "2024-11-15",
+                readTime: "8 min read",
+              },
+              {
+                slug: "winter-driving-tips-bronx",
+                title: "Winter Driving Tips for Bronx Roads",
+                excerpt: "Stay safe on icy Bronx streets this winter. Our instructors share essential tips for driving in snow, ice, and reduced visibility conditions.",
+                category: "Driving School",
+                date: "2024-11-01",
+                readTime: "4 min read",
+              },
+              {
+                slug: "small-business-tax-deductions",
+                title: "Overlooked Small Business Tax Deductions for 2024",
+                excerpt: "From home office to vehicle expenses, many small business owners miss valuable deductions. Our tax advisors highlight the most commonly overlooked write-offs.",
+                category: "Tax Services",
+                date: "2024-10-20",
+                readTime: "6 min read",
+              },
+            ].map((post) => (
               <motion.article
                 key={post.slug}
                 initial={{ opacity: 0, y: 20 }}

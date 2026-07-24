@@ -40,12 +40,6 @@ const additionalServices = [
     href: "#divorce",
     icon: Scale,
   },
-  {
-    title: "Document Translation",
-    description: "Certified Spanish ↔ English translations for immigration, legal, academic, and official documents. USCIS accepted.",
-    href: "#translation",
-    icon: FileText,
-  },
 ]
 
 export default function ServicesPage() {
@@ -197,6 +191,18 @@ export default function ServicesPage() {
                   </li>
                 ))}
               </ul>
+              <p className="text-slate-600 text-lg mb-4 leading-relaxed">
+                <strong>Notaries:</strong> Carmen Y. Porrata and Wilkin Cabrera — "Appointed by the Secretary of State, State of New York" and "Members of the American Association of Notaries."
+              </p>
+              <p className="text-slate-600 text-lg mb-4 leading-relaxed">
+                <strong>Full Service Mobile Notary Public</strong> also available, by appointment only. To book, contact: <a href="tel:+16468536303" className="text-brand-secondary hover:underline">(646) 853-6303</a>
+              </p>
+              <p className="text-slate-600 text-lg mb-4 leading-relaxed">
+                <strong>Pricing:</strong> $150 standard Mobile Notary services (flat fee + the cost to notarize)
+              </p>
+              <p className="text-slate-600 text-lg mb-8 leading-relaxed">
+                <strong>Service Area:</strong> Conveniently servicing you throughout Manhattan, Bronx, Brooklyn, Queens and Lower Westchester areas.
+              </p>
               <Button variant="premium" size="lg" asChild>
                 <Link href="/contact">Visit for Notary</Link>
               </Button>

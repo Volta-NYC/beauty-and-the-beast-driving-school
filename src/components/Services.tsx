@@ -2,54 +2,99 @@
 
 import { motion } from "framer-motion"
 import Link from "next/link"
-import { ArrowRight, Car, Calculator, FileText, Stamp, Languages, Copy, FileText as FaxIcon, Scan, Shield, Users, Clock, Star, CheckCircle } from "lucide-react"
+import { ArrowRight, Car, Calculator, FileText, Stamp, Copy, Camera, Scan, Shield, Users, Clock, Calendar, Heart, Scale, Star, CheckCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { cn } from "@/lib/utils"
 
 const serviceCategories = [
   {
-    id: "driving-school",
-    title: "Driving School",
-    description: "NYS DMV-approved driver education programs for teens and adults",
-    icon: Car,
-    color: "bg-blue-500",
-    href: "/driving-school",
-    services: [
-      { id: "teen", title: "Teen Driver Education", description: "24hr classroom + 6hr behind-the-wheel", features: ["NYS Certified", "Flexible Schedule", "Road Test Help"] },
-      { id: "adult", title: "Adult Driving Lessons", description: "Personalized 1-on-1 instruction", features: ["Patient Instructors", "Custom Plans", "7 Days/Week"] },
-      { id: "defensive", title: "Defensive Driving", description: "Point reduction & insurance discount", features: ["DMV Approved", "Online Option", "4hr Course"] },
-      { id: "road-test", title: "Road Test Prep", description: "Mock tests & route familiarization", features: ["Practice Routes", "Mock Exams", "Vehicle Provided"] },
-      { id: "5-hour", title: "5-Hour Pre-Licensing", description: "Mandatory NYS pre-licensing class", features: ["Weekly Classes", "Certificate Same Day", "English/Spanish"] },
-    ],
-  },
-  {
     id: "tax-services",
     title: "Tax Services",
-    description: "Comprehensive tax preparation and planning for individuals and businesses",
+    description: "ITIN, EIN, 1040, Self-Employed Taxes & More",
     icon: Calculator,
     color: "bg-emerald-500",
     href: "/tax-services",
     services: [
       { id: "individual", title: "Individual Tax Prep", description: "Federal & NY state returns", features: ["E-File Included", "Max Refund Guarantee", "Audit Support"] },
       { id: "business", title: "Business Tax Services", description: "Corporate, partnership, LLC returns", features: ["All Entity Types", "Quarterly Estimates", "Payroll Tax"] },
-      { id: "planning", title: "Tax Planning", description: "Year-round tax strategy", features: ["Proactive Planning", "Retirement Strategies", "Investment Advice"] },
-      { id: "irs", title: "IRS Resolution", description: "Audits, liens, levies & payment plans", features: ["Offer in Compromise", "Installment Agreements", "Penalty Abatement"] },
-      { id: "bookkeeping", title: "Bookkeeping", description: "Monthly & quarterly bookkeeping", features: ["QuickBooks Certified", "Financial Statements", "Bank Reconciliation"] },
     ],
   },
   {
-    id: "additional-services",
-    title: "Additional Services",
-    description: "Convenient business services to save you time",
-    icon: FileText,
-    color: "bg-amber-500",
-    href: "/services",
+    id: "notary",
+    title: "Notary Public",
+    description: "Document notarization & certification",
+    icon: Stamp,
+    color: "bg-blue-500",
+    href: "/services#notary",
     services: [
-      { id: "notary", title: "Notary Public", description: "Document notarization & certification", features: ["Walk-ins Welcome", "Loan Signings", "Apostille Service"] },
-      { id: "translation", title: "Translation", description: "Spanish/English certified translations", features: ["USCIS Accepted", "Same Day Available", "Document Review"] },
-      { id: "copies", title: "Copies & Fax", description: "High-volume copying & faxing", features: ["Bulk Discounts", "Color/B&W", "Fax Send/Receive"] },
-      { id: "scanning", title: "Document Scanning", description: "Secure digital conversion", features: ["OCR Available", "Cloud Delivery", "Secure Shredding"] },
+      { id: "notary", title: "Notary Public", description: "Licensed notary for affidavits, powers of attorney, deeds, contracts, and certified copies", features: ["Walk-ins Welcome", "Loan Signings", "Apostille Service"] },
+    ],
+  },
+  {
+    id: "copies",
+    title: "Copy, Laminate, Fax & Scan",
+    description: "High-volume copying, laminating, faxing, and scanning",
+    icon: Copy,
+    color: "bg-amber-500",
+    href: "/services#copies",
+    services: [
+      { id: "copies", title: "Document Services", description: "Copy, laminate, fax, scan with competitive bulk pricing", features: ["Bulk Discounts", "Color/B&W", "Fax Send/Receive"] },
+    ],
+  },
+  {
+    id: "passport",
+    title: "Passport Photos (Castle Hill)",
+    description: "US State Department compliant passport photos",
+    icon: Camera,
+    color: "bg-purple-500",
+    href: "/services#passport",
+    services: [
+      { id: "passport", title: "Passport Photos", description: "Available at Castle Hill location only. No appointment needed.", features: ["$12.99 for 2", "Ready in 10 min", "100% compliance"] },
+    ],
+  },
+  {
+    id: "defensive",
+    title: "Point Reduction / Defensive Driving",
+    description: "6-Hour NYS DMV-approved PIRP course",
+    icon: Shield,
+    color: "bg-red-500",
+    href: "/driving-school#defensive",
+    services: [
+      { id: "defensive", title: "Defensive Driving", description: "Reduce up to 4 points, save 10% on insurance for 3 years", features: ["DMV Approved", "Online Option", "Same Day Cert"] },
+    ],
+  },
+  {
+    id: "road-test",
+    title: "DMV Road Test Scheduling",
+    description: "We handle the booking so you don't have to",
+    icon: Calendar,
+    color: "bg-indigo-500",
+    href: "/driving-school#road-test",
+    services: [
+      { id: "road-test", title: "Road Test Scheduling", description: "DMV road test appointment booking and vehicle provided", features: ["Check Availability", "Book Earliest Slot", "Warm-up Lesson"] },
+    ],
+  },
+  {
+    id: "marriage",
+    title: "Certified Marriage Officiant (NY & CT)",
+    description: "Civil ceremonies in New York and Connecticut",
+    icon: Heart,
+    color: "bg-pink-500",
+    href: "/services#marriage",
+    services: [
+      { id: "marriage", title: "Marriage Officiant", description: "Certified officiant for civil ceremonies. Bilingual (English/Spanish)", features: ["NY & CT", "Flexible Scheduling", "Custom Ceremonies"] },
+    ],
+  },
+  {
+    id: "divorce",
+    title: "Pro-Se Divorce Service",
+    description: "Self-representation assistance for uncontested divorces",
+    icon: Scale,
+    color: "bg-teal-500",
+    href: "/services#divorce",
+    services: [
+      { id: "divorce", title: "Pro-Se Divorce", description: "Document preparation and filing guidance for uncontested divorce", features: ["Forms Prep", "Filing Guidance", "Court Procedures"] },
     ],
   },
 ]

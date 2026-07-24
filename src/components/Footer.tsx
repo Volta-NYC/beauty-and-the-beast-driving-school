@@ -2,18 +2,23 @@ import Link from "next/link"
 import { Facebook, Instagram, MapPin, Phone, Mail, ArrowRight, Calendar, Clock } from "lucide-react"
 
 const contactInfo = {
-  phone: "(718) 555-0199",
-  email: "info@porratax.com",
+  phone: "(917) 737-7623",
+  mobileNotaryPhone: "(646) 853-6303",
+  castleHillPhone: "(347) 281-8032",
+  email: "carmen@porratax.com",
+  wilkinEmail: "wilkin@porratax.com",
   locations: [
     {
       name: "Main Location",
       address: "909 E. 169th St, Bronx, NY 10459",
       hours: "Mon-Fri: 10am-6pm | Sat: 11am-5pm | Sun: By appointment",
+      phone: "(917) 737-7623",
     },
     {
       name: "Branch Location",
       address: "847 Castle Hill Ave, Bronx, NY 10473",
       hours: "Mon-Fri: 10am-6pm | Sat: 11am-5pm | Sun: By appointment",
+      phone: "(347) 281-8032",
     },
   ],
 }
@@ -143,6 +148,10 @@ export default function Footer() {
                     <Clock className="h-3.5 w-3.5 text-brand-accent" aria-hidden="true" />
                     <span>{location.hours}</span>
                   </div>
+                  <div className="flex items-center gap-2 text-sm ml-6">
+                    <Phone className="h-3.5 w-3.5 text-brand-accent" aria-hidden="true" />
+                    <a href={`tel:${location.phone}`} className="hover:text-white transition-colors">{location.phone}</a>
+                  </div>
                 </div>
               ))}
             </address>
@@ -155,8 +164,20 @@ export default function Footer() {
                   <a href={`tel:${contactInfo.phone}`} className="hover:text-white transition-colors">{contactInfo.phone}</a>
                 </div>
                 <div className="flex items-center gap-2">
+                  <Phone className="h-4 w-4 text-brand-accent flex-shrink-0" aria-hidden="true" />
+                  <a href={`tel:${contactInfo.mobileNotaryPhone}`} className="hover:text-white transition-colors">{contactInfo.mobileNotaryPhone} <span className="text-slate-500">(Mobile Notary)</span></a>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Phone className="h-4 w-4 text-brand-accent flex-shrink-0" aria-hidden="true" />
+                  <a href={`tel:${contactInfo.castleHillPhone}`} className="hover:text-white transition-colors">{contactInfo.castleHillPhone} <span className="text-slate-500">(Castle Hill)</span></a>
+                </div>
+                <div className="flex items-center gap-2">
                   <Mail className="h-4 w-4 text-brand-accent flex-shrink-0" aria-hidden="true" />
                   <a href={`mailto:${contactInfo.email}`} className="hover:text-white transition-colors">{contactInfo.email}</a>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Mail className="h-4 w-4 text-brand-accent flex-shrink-0" aria-hidden="true" />
+                  <a href={`mailto:${contactInfo.wilkinEmail}`} className="hover:text-white transition-colors">{contactInfo.wilkinEmail}</a>
                 </div>
               </dl>
             </div>
@@ -172,6 +193,7 @@ export default function Footer() {
               <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
               <Link href="/student-responsibilities" className="hover:text-white transition-colors">Student Responsibilities</Link>
               <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
+              <Link href="/search" className="hover:text-white transition-colors">Search</Link>
               <a
                 href="https://nyc.voltanpo.org"
                 target="_blank"

@@ -51,8 +51,8 @@ const navigation = [
 ]
 
 const contactInfo = {
-  phone: "(718) 555-0199",
-  email: "info@porratax.com",
+  phone: "(917) 737-7623",
+  email: "carmen@porratax.com",
 }
 
 export default function Navbar() {

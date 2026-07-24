@@ -173,7 +173,7 @@ export default function FindUs() {
             <div className="grid grid-cols-2 gap-4">
               <Card className="border-slate-200 hover:border-brand-secondary/50 hover:shadow-lg transition-all duration-300 text-center p-6">
                 <CardContent>
-                  <div className="text-3xl font-bold text-brand-primary mb-1">28+</div>
+                  <div className="text-3xl font-bold text-brand-primary mb-1">14+</div>
                   <div className="text-slate-600 text-sm">Years Serving the Bronx</div>
                 </CardContent>
               </Card>
