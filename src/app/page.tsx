@@ -1,23 +1,29 @@
+import Hero from "@/components/Hero"
+import Services from "@/components/Services"
+import About from "@/components/About"
+import FindUs from "@/components/FindUs"
+import Testimonials from "@/components/Testimonials"
+import FAQ from "@/components/FAQ"
+import CTA from "@/components/CTA"
+
 export default function HomePage() {
   return (
-    <div className="space-y-8">
-      <h1 className="text-4xl font-bold">
-        Welcome to Business Name
-      </h1>
-
-      <p className="text-lg text-gray-600">
-        Replace this section with a strong value proposition.
-      </p>
-
-      <div className="flex gap-4">
-        <button className="px-6 py-3 bg-black text-white rounded-md">
-          Primary Action
-        </button>
-
-        <button className="px-6 py-3 border rounded-md">
-          Secondary Action
-        </button>
-      </div>
-    </div>
+    <>
+      <Hero />
+      <Services />
+      <About />
+      <FindUs />
+      <Testimonials />
+      <FAQ />
+      <CTA
+        title="Ready to Start Your Journey?"
+        description="Whether you need driving lessons, tax preparation, or any of our other services, our experienced team is here to help. Book your appointment today!"
+        primaryText="Get Started Now"
+        primaryHref="/contact"
+        secondaryText="Call Us"
+        secondaryHref="tel:+17185550199"
+        variant="gradient"
+      />
+    </>
   )
 }
