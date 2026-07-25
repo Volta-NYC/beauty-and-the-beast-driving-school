@@ -7,22 +7,24 @@ import { Card, CardContent } from "@/components/ui/card"
 import { cn } from "@/lib/utils"
 
 const contactInfo = {
-  address: "1234 Main Street, Bronx, NY 10451",
-  phone: "(718) 555-0199",
-  email: "info@beautybeastdrivingschool.com",
+  address: "909 E. 169th St, Bronx, NY 10459",
+  branchAddress: "847 Castle Hill Ave, Bronx, NY 10473",
+  phone: "(917) 737-7623",
+  branchPhone: "(347) 281-8032",
+  email: "carmen@porratax.com",
   hours: [
     { days: "Monday - Friday", hours: "8:00 AM - 7:00 PM" },
     { days: "Saturday", hours: "9:00 AM - 3:00 PM" },
     { days: "Sunday", hours: "Closed" },
   ],
-  mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.123456789!2d-73.912345!3d40.812345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2f4a1b2c3d4e5%3A0xf1e2d3c4b5a6!2s1234%20Main%20St%2C%20Bronx%2C%20NY%2010451!5e0!3m2!1sen!2sus!4v1234567890",
+  mapEmbedUrl: "https://www.google.com/maps?q=909%20E.%20169th%20St%20Bronx%20NY%2010459&output=embed",
 }
 
 const directions = [
-  { icon: Navigation, title: "By Subway", desc: "4 or D train to 161st St - Yankee Stadium. 5 min walk north on Main St." },
-  { icon: Navigation, title: "By Bus", desc: "Bx6, Bx13, or Bx35 to Main St & 161st St. Office is on the corner." },
-  { icon: Car, title: "By Car", desc: "From I-87, take Exit 4 for 161st St. Turn left on Main St. Free rear parking." },
-  { icon: MapPin, title: "Walking", desc: "On Main St between 161st & 162nd, across from the community center." },
+  { icon: Navigation, title: "By Subway", desc: "6 train to Whitlock Ave or 2/5 train to Simpson St, then a short local walk." },
+  { icon: Navigation, title: "By Bus", desc: "Nearby Bronx bus routes connect both offices with Westchester Ave and Castle Hill Ave." },
+  { icon: Car, title: "By Car", desc: "Use the 169th Street or Castle Hill Avenue address for directions. Parking availability varies by location." },
+  { icon: MapPin, title: "Second Office", desc: "Castle Hill office: 847 Castle Hill Ave, Bronx, NY 10473. Call (347) 281-8032." },
 ]
 
 export default function FindUs() {
@@ -43,7 +45,7 @@ export default function FindUs() {
             Visit Our Bronx Location
           </h2>
           <p className="text-lg text-slate-600 leading-relaxed">
-            Conveniently located on Main Street near Yankee Stadium. Easy access by subway, bus, or car with free parking available.
+            Visit our main office on East 169th Street or our Castle Hill Avenue branch for driving school, tax, notary, and document services.
           </p>
         </motion.div>
 
@@ -60,8 +62,9 @@ export default function FindUs() {
                 <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center mb-4">
                   <MapPin className="h-6 w-6 text-blue-500" aria-hidden="true" />
                 </div>
-                <h3 className="text-lg font-semibold text-brand-primary mb-2">Visit Us</h3>
+                <h3 className="text-lg font-semibold text-brand-primary mb-2">Main Office</h3>
                 <address className="text-slate-600 not-italic leading-relaxed">{contactInfo.address}</address>
+                <p className="mt-2 text-sm text-slate-500">{contactInfo.branchAddress}</p>
               </CardContent>
             </Card>
           </motion.div>
@@ -76,6 +79,7 @@ export default function FindUs() {
                 <a href={`tel:${contactInfo.phone}`} className="text-slate-600 hover:text-emerald-600 transition-colors font-medium">
                   {contactInfo.phone}
                 </a>
+                <p className="mt-2 text-sm text-slate-500">Castle Hill: {contactInfo.branchPhone}</p>
               </CardContent>
             </Card>
           </motion.div>
@@ -205,7 +209,7 @@ export default function FindUs() {
                   <a href="/contact">Book an Appointment</a>
                 </Button>
                 <a
-                  href="tel:+17185550199"
+                  href="tel:+19177377623"
                   className="inline-flex items-center gap-2 px-6 py-3 border-2 border-white/30 text-white font-medium rounded-lg hover:bg-white/10 transition-colors"
                 >
                   <Phone className="h-5 w-5" aria-hidden="true" />

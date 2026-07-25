@@ -76,7 +76,7 @@ export default function Footer() {
             </Link>
 
             <p className="text-slate-300 text-base leading-relaxed max-w-xs">
-              "That's the Beauty of It, We're a Beast at What We Do!" — Your trusted partner for professional driving education and comprehensive tax services in the Bronx since 1995.
+              "That's the Beauty of It, We're a Beast at What We Do!" — Your trusted partner for professional driving education and comprehensive tax services in the Bronx since 2011.
             </p>
 
             <div className="flex flex-wrap gap-4">

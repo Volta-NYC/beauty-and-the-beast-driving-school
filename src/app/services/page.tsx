@@ -97,7 +97,7 @@ export default function ServicesPage() {
               <Button variant="premium" size="xl" asChild>
                 <Link href="/contact">Get Started</Link>
               </Button>
-              <Button variant="outline" size="xl" className="border-white/30 text-white hover:bg-white/10" asChild>
+              <Button variant="outline" size="xl" className="border-white/30 bg-transparent text-white hover:bg-white/10 hover:text-white" asChild>
                 <Link href="/locations">Visit Us</Link>
               </Button>
             </motion.div>

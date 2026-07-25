@@ -21,38 +21,35 @@ const trustBadges = [
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden" aria-labelledby="hero-heading">
+    <section className="relative flex min-h-[calc(100svh-4rem)] items-center justify-center overflow-hidden lg:min-h-[760px]" aria-labelledby="hero-heading">
       <div className="absolute inset-0 bg-gradient-to-br from-brand-primary via-slate-900 to-slate-800" aria-hidden="true" />
       <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-5" aria-hidden="true" />
-      <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-secondary/20 rounded-full blur-3xl animate-float" aria-hidden="true" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-brand-accent/20 rounded-full blur-3xl animate-float" style={{ animationDelay: "2s" }} aria-hidden="true" />
-      </div>
+      <div className="absolute inset-x-0 top-0 h-32 bg-brand-secondary/10" aria-hidden="true" />
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-32 lg:py-48">
+      <div className="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-20 lg:px-8 lg:py-28">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-center max-w-4xl mx-auto"
         >
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
+            initial={false}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2, duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 mb-6 backdrop-blur-sm"
+            className="inline-flex max-w-full flex-wrap items-center justify-center gap-x-3 gap-y-1 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-center backdrop-blur-sm"
           >
             <span className="text-sm font-medium text-white">Established 2011 • Bronx, NY</span>
-            <span className="text-white/60">|</span>
+            <span className="hidden text-white/60 sm:inline">|</span>
             <span className="text-sm font-medium text-brand-accent">Licensed & Insured</span>
           </motion.div>
 
           <motion.h1
             id="hero-heading"
-            initial={{ opacity: 0, y: 20 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.6 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 text-balance"
+            className="mt-6 text-3xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl"
           >
             Your Trusted Partner for{" "}
             <span className="relative">
@@ -67,37 +64,37 @@ export default function Hero() {
           </motion.h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
-            className="text-lg sm:text-xl text-white/80 mb-10 max-w-2xl mx-auto leading-relaxed"
+            className="mx-auto mb-8 max-w-2xl text-base leading-relaxed text-white/80 sm:text-xl lg:mb-10"
           >
-            Serving the Bronx community for over 28 years with comprehensive driver training, tax preparation,
+            Serving the Bronx community for over 14 years with comprehensive driver training, tax preparation,
             and business services. Licensed, insured, and committed to your success.
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.6 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
+            className="mb-10 flex flex-col items-center justify-center gap-3 sm:flex-row lg:mb-14"
           >
             <Button variant="premium" size="xl" asChild className="w-full sm:w-auto">
               <a href="/contact">Get Started Today</a>
             </Button>
-            <Button variant="outline" size="xl" className="w-full sm:w-auto border-white/30 text-white hover:bg-white/10" asChild>
+            <Button variant="outline" size="xl" className="w-full border-white/30 bg-transparent text-white hover:bg-white/10 hover:text-white sm:w-auto" asChild>
               <a href="/about">Learn More</a>
             </Button>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0 }}
+            initial={false}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6, duration: 0.6 }}
-            className="flex flex-wrap items-center justify-center gap-8 text-white/70"
+            className="grid grid-cols-2 gap-3 text-white/75 sm:flex sm:flex-wrap sm:items-center sm:justify-center sm:gap-6"
           >
             {trustBadges.map((badge, index) => (
-              <span key={badge.text} className="flex items-center gap-2 text-sm">
+              <span key={badge.text} className="flex items-center justify-center gap-2 text-center text-xs sm:text-sm">
                 <badge.icon className="h-4 w-4 text-brand-accent" aria-hidden="true" />
                 {badge.text}
               </span>
@@ -106,25 +103,25 @@ export default function Hero() {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.7, duration: 0.8 }}
-          className="mt-20"
+          className="mt-12 lg:mt-16"
         >
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 gap-5 md:grid-cols-4 lg:gap-8">
             {stats.map((stat, index) => (
               <motion.div
                 key={stat.label}
-                initial={{ opacity: 0, scale: 0.8 }}
+                initial={false}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.7 + index * 0.1, duration: 0.5 }}
                 className="text-center"
               >
-                <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-white/10 mb-4 backdrop-blur-sm" aria-hidden="true">
-                  <stat.icon className="h-7 w-7 text-brand-accent" />
+                <div className="mb-3 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-white/10 backdrop-blur-sm sm:h-14 sm:w-14" aria-hidden="true">
+                  <stat.icon className="h-5 w-5 text-brand-accent sm:h-7 sm:w-7" />
                 </div>
-                <div className="text-3xl sm:text-4xl font-bold text-white">{stat.value}</div>
-                <div className="text-white/60 text-sm mt-1">{stat.label}</div>
+                <div className="text-2xl font-bold text-white sm:text-4xl">{stat.value}</div>
+                <div className="mt-1 text-xs text-white/60 sm:text-sm">{stat.label}</div>
               </motion.div>
             ))}
           </div>
@@ -132,10 +129,10 @@ export default function Hero() {
       </div>
 
       <motion.div
-        initial={{ opacity: 0 }}
+        initial={false}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 0.8 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce"
+        className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 animate-bounce sm:block"
         aria-hidden="true"
       >
         <svg className="h-8 w-8 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -110,7 +110,7 @@ const allFeatures = [
 
 export default function Services() {
   return (
-    <section className="py-20 lg:py-32 bg-white" aria-labelledby="services-heading">
+    <section className="bg-white py-16 sm:py-20 lg:py-28" aria-labelledby="services-heading">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -133,7 +133,7 @@ export default function Services() {
           </h2>
           <p className="text-lg text-slate-600 leading-relaxed">
             From getting your driver&apos;s license to optimizing your tax return, we provide professional,
-            licensed services tailored to the Bronx community since 1995.
+            licensed services tailored to the Bronx community since 2011.
           </p>
         </motion.div>
 
@@ -142,7 +142,7 @@ export default function Services() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, staggerChildren: 0.1 }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20"
+          className="mb-16 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3 lg:mb-20"
         >
           {serviceCategories.map((category, index) => (
             <motion.div key={category.id}>

@@ -11,13 +11,13 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { cn } from "@/lib/utils"
 
 const contactInfo = {
-  address: "1234 Main Street, Bronx, NY 10451",
-  phone: "(718) 555-0199",
-  email: "info@beautybeastdrivingschool.com",
+  address: "909 E. 169th St, Bronx, NY 10459",
+  phone: "(917) 737-7623",
+  email: "carmen@porratax.com",
   hours: [
-    { days: "Monday - Friday", hours: "8:00 AM - 7:00 PM" },
-    { days: "Saturday", hours: "9:00 AM - 3:00 PM" },
-    { days: "Sunday", hours: "Closed" },
+    { days: "Monday - Friday", hours: "10:00 AM - 6:00 PM" },
+    { days: "Saturday", hours: "11:00 AM - 5:00 PM" },
+    { days: "Sunday", hours: "By appointment only" },
   ],
 }
 
@@ -25,7 +25,7 @@ const formFields = [
   { name: "firstName", label: "First Name", type: "text", placeholder: "John", required: true },
   { name: "lastName", label: "Last Name", type: "text", placeholder: "Doe", required: true },
   { name: "email", label: "Email", type: "email", placeholder: "john@example.com", required: true },
-  { name: "phone", label: "Phone", type: "tel", placeholder: "(718) 555-0123", required: true },
+  { name: "phone", label: "Phone", type: "tel", placeholder: "(917) 737-7623", required: true },
   { name: "service", label: "Service of Interest", type: "select", required: true, options: [
     { value: "", label: "Select a service" },
     { value: "driving-school", label: "Driving School" },

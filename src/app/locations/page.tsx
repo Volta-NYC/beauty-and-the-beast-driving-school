@@ -154,7 +154,7 @@ export default function LocationsPage() {
                             Contact
                           </h4>
                           <a href={`tel:${location.phone}`} className="text-slate-600 hover:text-brand-primary transition-colors block mb-1">{location.phone}</a>
-                          <a href="mailto:info@porratax.com" className="text-slate-600 hover:text-brand-primary transition-colors">info@porratax.com</a>
+                          <a href="mailto:carmen@porratax.com" className="text-slate-600 hover:text-brand-primary transition-colors">carmen@porratax.com</a>
                         </CardContent>
                       </Card>
                     </div>
@@ -341,7 +341,7 @@ export default function LocationsPage() {
         primaryText="Book Appointment"
         primaryHref="/contact"
         secondaryText="Call Main Office"
-        secondaryHref="tel:+17185550199"
+        secondaryHref="tel:+19177377623"
         variant="gradient"
       />
     </>

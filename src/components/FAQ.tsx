@@ -110,11 +110,11 @@ export default function FAQ() {
               <p className="text-slate-300 mb-8">Our team is here to help. Call, email, or visit us — we'll get you the answers you need.</p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a
-                  href="tel:+17185550199"
+                  href="tel:+19177377623"
                   className="inline-flex items-center gap-2 px-6 py-3 bg-brand-secondary text-white font-medium rounded-lg hover:bg-brand-secondary/90 transition-colors"
                 >
                   <Phone className="h-5 w-5" aria-hidden="true" />
-                  Call: (718) 555-0199
+                  Call: (917) 737-7623
                 </a>
                 <a
                   href="/contact"

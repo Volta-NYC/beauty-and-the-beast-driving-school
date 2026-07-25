@@ -81,14 +81,14 @@ export default function Navbar() {
   return (
     <>
       <motion.header
-        initial={{ y: -100, opacity: 0 }}
+        initial={false}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
           scrolled
             ? "bg-white/95 backdrop-blur-sm shadow-md border-b border-slate-200"
-            : "bg-transparent"
+            : "bg-white/95 backdrop-blur-sm border-b border-slate-200"
         )}
         role="banner"
       >
@@ -96,7 +96,7 @@ export default function Navbar() {
           <div className="flex h-16 items-center justify-between">
             <Link
               href="/"
-              className="flex items-center gap-2 text-xl font-bold text-brand-primary"
+              className="flex min-h-11 min-w-11 items-center gap-2 text-lg font-bold text-brand-primary sm:text-xl"
               aria-label="Beauty & The Beast Driving School / Porrata Tax Services - Home"
             >
               <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand-secondary">
@@ -107,7 +107,7 @@ export default function Navbar() {
               <span className="hidden sm:block">Beauty & The Beast</span>
             </Link>
 
-            <div className="hidden md:flex md:items-center md:gap-1">
+            <div className="hidden xl:flex xl:items-center xl:gap-1">
               {navigation.map((item) => (
                 <DropdownItem
                   key={item.name}
@@ -119,7 +119,7 @@ export default function Navbar() {
               ))}
             </div>
 
-            <div className="hidden md:flex md:items-center md:gap-3">
+            <div className="hidden xl:flex xl:items-center xl:gap-3">
               <a
                 href={`tel:${contactInfo.phone}`}
                 className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-brand-primary hover:text-brand-secondary transition-colors"
@@ -133,7 +133,7 @@ export default function Navbar() {
             </div>
 
             <button
-              className="md:hidden flex h-10 w-10 items-center justify-center rounded-lg text-slate-600 hover:bg-slate-100"
+              className="flex h-11 w-11 items-center justify-center rounded-lg text-slate-600 hover:bg-slate-100 xl:hidden"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-expanded={mobileMenuOpen}
               aria-controls="mobile-menu"
@@ -152,7 +152,7 @@ export default function Navbar() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-40 bg-black/50 md:hidden"
+            className="fixed inset-0 z-40 bg-black/50 xl:hidden"
             onClick={() => setMobileMenuOpen(false)}
             aria-hidden="true"
           />
@@ -166,7 +166,7 @@ export default function Navbar() {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            className="fixed inset-y-0 right-0 z-50 w-full max-w-sm bg-white shadow-xl md:hidden"
+            className="fixed inset-y-0 right-0 z-50 w-full max-w-sm bg-white shadow-xl xl:hidden"
             role="navigation"
             aria-label="Mobile menu"
           >

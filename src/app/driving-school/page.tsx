@@ -278,7 +278,7 @@ export default function DrivingSchoolPage() {
               <Button variant="premium" size="xl" asChild className="w-full sm:w-auto">
                 <Link href="/contact">Book Your First Lesson</Link>
               </Button>
-              <Button variant="outline" size="xl" className="w-full sm:w-auto border-white/30 text-white hover:bg-white/10" asChild>
+              <Button variant="outline" size="xl" className="w-full border-white/30 bg-transparent text-white hover:bg-white/10 hover:text-white sm:w-auto" asChild>
                 <Link href="/locations">View Locations</Link>
               </Button>
             </div>
@@ -597,7 +597,7 @@ export default function DrivingSchoolPage() {
         primaryText="Book Your Lesson"
         primaryHref="/contact"
         secondaryText="Call Now"
-        secondaryHref="tel:+17185550199"
+        secondaryHref="tel:+19177377623"
         variant="gradient"
       />
     </>

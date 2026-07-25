@@ -38,7 +38,7 @@ export default function CTA({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.6 }}
-      className={cn("py-16 lg:py-24 rounded-3xl relative overflow-hidden", variants[variant], className)}
+      className={cn("relative overflow-hidden py-16 lg:py-24", variants[variant], className)}
       aria-labelledby="cta-heading"
     >
       {variant === "gradient" && (
@@ -73,7 +73,7 @@ export default function CTA({
           </Button>
 
           {secondaryText && secondaryHref && (
-            <Button variant="outline" size="xl" className="w-full sm:w-auto border-white/30 text-white hover:bg-white/10" asChild>
+            <Button variant="outline" size="xl" className="w-full border-white/30 bg-transparent text-white hover:bg-white/10 hover:text-white sm:w-auto" asChild>
               <a href={secondaryHref}>{secondaryText}</a>
             </Button>
           )}

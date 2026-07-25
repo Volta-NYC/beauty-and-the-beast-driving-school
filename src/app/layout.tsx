@@ -11,6 +11,7 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.porratax.com"),
   title: {
     default: "Beauty & The Beast Driving School / Porrata Tax Services - Bronx, NY",
     template: "%s | Beauty & The Beast Driving School / Porrata Tax Services",
@@ -81,8 +82,8 @@ export default function RootLayout({
               name: "Beauty and The Beast Driving School / Porrata Tax Services",
               description: "Professional driving education and tax services in the Bronx. Complete driving packages, individual lessons, defensive driving courses, tax preparation, notary, and more.",
               url: "https://www.porratax.com",
-              telephone: "+1-718-555-0199",
-              email: "info@porratax.com",
+              telephone: "+1-917-737-7623",
+              email: "carmen@porratax.com",
               address: {
                 "@type": "PostalAddress",
                 streetAddress: "909 E. 169th St",

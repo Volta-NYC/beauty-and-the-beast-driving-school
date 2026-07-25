@@ -2,7 +2,7 @@ import { Award, Heart, Shield, Users, Target, BookOpen } from "lucide-react"
 
 export const milestones = [
   {
-    year: 1995,
+    year: 2011,
     title: "Founded",
     description: "Beauty & The Beast Driving School opens its doors in the Bronx with a mission to provide quality driver education to the community.",
   },
