@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="flex flex-col gap-1">
           <div>© {new Date().getFullYear()} Business Name</div>
           <Link
-            href="https://nyc.voltanpo.org"
+            href="https://voltanyc.org/"
             target="_blank"
             rel="noreferrer"
             className="text-gray-600 hover:underline"
