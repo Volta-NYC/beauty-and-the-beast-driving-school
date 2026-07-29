@@ -1,13 +1,21 @@
 import type { Metadata, Viewport } from "next"
 import "./globals.css"
-import { Inter } from "next/font/google"
+import { Cormorant_Garamond, DM_Sans } from "next/font/google"
 import Navbar from "@/components/Navbar"
 import Footer from "@/components/Footer"
 
-const inter = Inter({
+const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
   display: "swap",
-  variable: "--font-inter",
+  variable: "--font-serif",
+})
+
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
+  display: "swap",
+  variable: "--font-sans",
 })
 
 export const metadata: Metadata = {
@@ -50,7 +58,7 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  themeColor: "#0F172A",
+  themeColor: "#0B1120",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
@@ -62,14 +70,14 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${inter.variable} antialiased`}>
+    <html lang="en" className={`${cormorant.variable} ${dmSans.variable} antialiased`}>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://www.google.com" />
         <link rel="dns-prefetch" href="https://maps.google.com" />
       </head>
-      <body className="min-h-screen flex flex-col bg-white text-brand-text">
+      <body className="min-h-screen flex flex-col bg-brand-primary text-brand-text">
         <Navbar />
         <main className="flex-1 pt-16">{children}</main>
         <Footer />

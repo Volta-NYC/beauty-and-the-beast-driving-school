@@ -4,12 +4,11 @@ import * as React from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
-import { Menu, X, Phone, ChevronDown } from "lucide-react"
+import { Menu, X, ChevronDown } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 
 const navigation = [
-  { name: "Home", href: "/" },
   {
     name: "Driving School",
     href: "/driving-school",
@@ -50,11 +49,6 @@ const navigation = [
   { name: "Blog", href: "/blog" },
 ]
 
-const contactInfo = {
-  phone: "(917) 737-7623",
-  email: "carmen@porratax.com",
-}
-
 export default function Navbar() {
   const pathname = usePathname()
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false)
@@ -81,33 +75,36 @@ export default function Navbar() {
   return (
     <>
       <motion.header
-        initial={false}
+        initial={{ y: -50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+          "fixed top-0 left-0 right-0 z-50 transition-all duration-300 h-14 flex items-center border-b",
           scrolled
-            ? "bg-white/95 backdrop-blur-sm shadow-md border-b border-slate-200"
-            : "bg-white/95 backdrop-blur-sm border-b border-slate-200"
+            ? "bg-brand-primary/85 backdrop-blur-md shadow-lg border-white/5"
+            : "bg-transparent border-transparent"
         )}
         role="banner"
       >
-        <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" aria-label="Main navigation">
-          <div className="flex h-16 items-center justify-between">
+        <nav className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8" aria-label="Main navigation">
+          <div className="flex h-14 items-center justify-between">
             <Link
               href="/"
-              className="flex min-h-11 min-w-11 items-center gap-2 text-lg font-bold text-brand-primary sm:text-xl"
+              className="flex items-center gap-2 font-serif text-white hover:text-brand-secondary transition-colors"
               aria-label="Beauty & The Beast Driving School / Porrata Tax Services - Home"
             >
-              <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand-secondary">
-                <svg className="h-5 w-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" />
+              <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-brand-secondary to-brand-goldLight text-slate-950">
+                <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" />
                 </svg>
               </span>
-              <span className="hidden sm:block">Beauty & The Beast</span>
+              <div className="flex flex-col -space-y-1 whitespace-nowrap">
+                <span className="text-lg font-bold tracking-tight">Beauty & The Beast</span>
+                <span className="text-[9px] uppercase tracking-[0.2em] text-slate-400 font-sans">DRIVING SCHOOL</span>
+              </div>
             </Link>
 
-            <div className="hidden xl:flex xl:items-center xl:gap-1">
+            <div className="hidden lg:flex lg:items-center lg:gap-0.5">
               {navigation.map((item) => (
                 <DropdownItem
                   key={item.name}
@@ -119,21 +116,14 @@ export default function Navbar() {
               ))}
             </div>
 
-            <div className="hidden xl:flex xl:items-center xl:gap-3">
-              <a
-                href={`tel:${contactInfo.phone}`}
-                className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-brand-primary hover:text-brand-secondary transition-colors"
-              >
-                <Phone className="h-4 w-4" aria-hidden="true" />
-                <span>{contactInfo.phone}</span>
-              </a>
-              <Button variant="premium" size="lg" asChild>
+            <div className="hidden lg:flex lg:items-center lg:gap-3">
+              <Button size="sm" className="bg-gradient-to-r from-brand-secondary to-brand-goldLight text-slate-950 hover:opacity-90 transition-opacity rounded-full font-semibold px-5" asChild>
                 <Link href="/contact">Get Started</Link>
               </Button>
             </div>
 
             <button
-              className="flex h-11 w-11 items-center justify-center rounded-lg text-slate-600 hover:bg-slate-100 xl:hidden"
+              className="flex h-10 w-10 items-center justify-center rounded-lg text-slate-300 hover:bg-slate-900/50 lg:hidden"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-expanded={mobileMenuOpen}
               aria-controls="mobile-menu"
@@ -152,7 +142,7 @@ export default function Navbar() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-40 bg-black/50 xl:hidden"
+            className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm lg:hidden"
             onClick={() => setMobileMenuOpen(false)}
             aria-hidden="true"
           />
@@ -166,34 +156,34 @@ export default function Navbar() {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            className="fixed inset-y-0 right-0 z-50 w-full max-w-sm bg-white shadow-xl xl:hidden"
+            className="fixed inset-y-0 right-0 z-50 w-full max-w-xs bg-slate-950/95 border-l border-white/10 backdrop-blur-lg shadow-2xl lg:hidden"
             role="navigation"
             aria-label="Mobile menu"
           >
             <div className="flex h-full flex-col">
-              <div className="flex h-16 items-center justify-between border-b px-4">
+              <div className="flex h-14 items-center justify-between border-b border-white/10 px-4">
                 <Link
                   href="/"
-                  className="flex items-center gap-2 text-xl font-bold text-brand-primary"
+                  className="flex items-center gap-2 font-serif text-white"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand-secondary">
-                    <svg className="h-5 w-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" />
+                  <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-brand-secondary to-brand-goldLight text-slate-950">
+                    <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" />
                     </svg>
                   </span>
-                  <span>Beauty & The Beast</span>
+                  <span className="text-md font-bold">Beauty & The Beast</span>
                 </Link>
                 <button
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex h-10 w-10 items-center justify-center rounded-lg text-slate-600 hover:bg-slate-100"
+                  className="flex h-9 w-9 items-center justify-center rounded-lg text-slate-300 hover:bg-slate-900"
                   aria-label="Close menu"
                 >
-                  <X className="h-6 w-6" />
+                  <X className="h-5 w-5" />
                 </button>
               </div>
 
-              <nav className="flex-1 overflow-y-auto px-4 py-6 space-y-4" aria-label="Mobile navigation">
+              <nav className="flex-1 overflow-y-auto px-3 py-6 space-y-2" aria-label="Mobile navigation">
                 {navigation.map((item) => (
                   <MobileDropdownItem
                     key={item.name}
@@ -205,16 +195,8 @@ export default function Navbar() {
                   />
                 ))}
 
-                <div className="pt-6 border-t space-y-4">
-                  <a
-                    href={`tel:${contactInfo.phone}`}
-                    className="flex items-center gap-3 px-4 py-3 text-lg font-medium text-brand-primary hover:text-brand-secondary transition-colors"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    <Phone className="h-6 w-6" aria-hidden="true" />
-                    <span>Call Us: {contactInfo.phone}</span>
-                  </a>
-                  <Button variant="premium" size="lg" className="w-full" asChild>
+                <div className="pt-6 border-t border-white/10 space-y-4">
+                  <Button size="lg" className="w-full bg-gradient-to-r from-brand-secondary to-brand-goldLight text-slate-950 font-semibold rounded-full" asChild>
                     <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>
                       Get Started
                     </Link>
@@ -247,10 +229,10 @@ function DropdownItem({
       <Link
         href={item.href}
         className={cn(
-          "px-4 py-2 text-sm font-medium rounded-lg transition-colors",
+          "px-3 py-1.5 text-[13px] font-sans font-medium rounded-full transition-all whitespace-nowrap",
           isActive
             ? "text-brand-secondary bg-brand-secondary/10"
-            : "text-slate-600 hover:text-brand-primary hover:bg-slate-50"
+            : "text-slate-300 hover:text-white hover:bg-white/5"
         )}
         aria-current={isActive ? "page" : undefined}
       >
@@ -260,14 +242,14 @@ function DropdownItem({
   }
 
   return (
-    <div className="relative" onMouseEnter={onToggle} onMouseLeave={() => setTimeout(onToggle, 100)}>
+    <div className="relative" onMouseEnter={onToggle} onMouseLeave={() => setTimeout(onToggle, 150)}>
       <button
         onClick={onToggle}
         className={cn(
-          "flex items-center gap-1.5 px-4 py-2 text-sm font-medium rounded-lg transition-colors",
+          "flex items-center gap-1 px-3 py-1.5 text-[13px] font-sans font-medium rounded-full transition-all whitespace-nowrap",
           isActive || isOpen
             ? "text-brand-secondary bg-brand-secondary/10"
-            : "text-slate-600 hover:text-brand-primary hover:bg-slate-50"
+            : "text-slate-300 hover:text-white hover:bg-white/5"
         )}
         aria-expanded={isOpen}
         aria-haspopup="true"
@@ -275,7 +257,7 @@ function DropdownItem({
       >
         {item.name}
         <ChevronDown
-          className={cn("h-4 w-4 transition-transform", isOpen && "rotate-180")}
+          className={cn("h-3.5 w-3.5 transition-transform", isOpen && "rotate-180")}
           aria-hidden="true"
         />
       </button>
@@ -283,23 +265,23 @@ function DropdownItem({
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -10 }}
+            initial={{ opacity: 0, y: -5 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.2 }}
-            className="absolute left-0 top-full z-50 mt-2 w-72 rounded-xl bg-white shadow-xl border border-slate-200 py-2"
+            exit={{ opacity: 0, y: -5 }}
+            transition={{ duration: 0.15 }}
+            className="absolute left-0 top-full z-50 mt-1 w-64 rounded-xl bg-slate-900/95 border border-white/10 backdrop-blur-md py-1.5 shadow-2xl"
             role="menu"
           >
             {item.items?.map((subItem) => (
               <Link
                 key={subItem.name}
                 href={subItem.href}
-                className="flex flex-col gap-0.5 px-4 py-3 text-slate-600 hover:text-brand-primary hover:bg-slate-50 transition-colors"
+                className="flex flex-col gap-0.5 px-3.5 py-2 text-slate-300 hover:text-white hover:bg-white/5 transition-colors"
                 role="menuitem"
                 onClick={onToggle}
               >
-                <span className="font-medium">{subItem.name}</span>
-                <span className="text-xs text-slate-400">{subItem.description}</span>
+                <span className="font-medium text-xs sm:text-[13px]">{subItem.name}</span>
+                <span className="text-[10px] text-slate-400 leading-tight">{subItem.description}</span>
               </Link>
             ))}
           </motion.div>
@@ -329,10 +311,10 @@ function MobileDropdownItem({
       <Link
         href={item.href}
         className={cn(
-          "px-4 py-3 text-base font-medium rounded-lg transition-colors",
+          "flex px-4 py-2.5 text-sm font-medium rounded-lg transition-colors",
           isActive
             ? "text-brand-secondary bg-brand-secondary/10"
-            : "text-slate-600 hover:text-brand-primary hover:bg-slate-50"
+            : "text-slate-300 hover:text-white hover:bg-white/5"
         )}
         aria-current={isActive ? "page" : undefined}
         onClick={closeMobileMenu}
@@ -347,17 +329,17 @@ function MobileDropdownItem({
       <button
         onClick={onToggle}
         className={cn(
-          "flex items-center justify-between w-full px-4 py-3 text-base font-medium rounded-lg transition-colors",
+          "flex items-center justify-between w-full px-4 py-2.5 text-sm font-medium rounded-lg transition-colors",
           isActive || isOpen
             ? "text-brand-secondary bg-brand-secondary/10"
-            : "text-slate-600 hover:text-brand-primary hover:bg-slate-50"
+            : "text-slate-300 hover:text-white hover:bg-white/5"
         )}
         aria-expanded={isOpen}
         aria-haspopup="true"
       >
         {item.name}
         <ChevronDown
-          className={cn("h-5 w-5 transition-transform", isOpen && "rotate-180")}
+          className={cn("h-4 w-4 transition-transform", isOpen && "rotate-180")}
           aria-hidden="true"
         />
       </button>
@@ -369,19 +351,19 @@ function MobileDropdownItem({
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
-            className="overflow-hidden pl-4 pb-2 space-y-1"
+            className="overflow-hidden pl-3 pb-1.5 space-y-0.5"
             role="menu"
           >
             {item.items?.map((subItem) => (
               <li key={subItem.name} role="none">
                 <Link
                   href={subItem.href}
-                  className="flex flex-col gap-0.5 px-3 py-2.5 text-slate-600 hover:text-brand-primary hover:bg-slate-50 rounded-lg transition-colors"
+                  className="flex flex-col gap-0.5 px-3 py-2 text-slate-400 hover:text-white hover:bg-white/5 rounded-lg transition-colors"
                   role="menuitem"
                   onClick={closeMobileMenu}
                 >
-                  <span className="font-medium text-sm">{subItem.name}</span>
-                  <span className="text-xs text-slate-400">{subItem.description}</span>
+                  <span className="font-medium text-xs">{subItem.name}</span>
+                  <span className="text-[10px] text-slate-500 leading-tight">{subItem.description}</span>
                 </Link>
               </li>
             ))}

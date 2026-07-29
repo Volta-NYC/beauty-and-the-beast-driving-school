@@ -45,13 +45,14 @@ const config: Config = {
         },
         // Brand colors
         brand: {
-          primary: "#0F172A",      // Primary - Dark slate
-          secondary: "#2563EB",    // Secondary - Blue
-          accent: "#10B981",       // Accent - Emerald
-          background: "#FFFFFF",   // Background - White
-          card: "#F8FAFC",         // Cards - Very light gray
-          text: "#0F172A",         // Typography - Dark slate
-          muted: "#64748B",        // Muted text
+          primary: "#0B1120",      // Deep navy
+          secondary: "#C9974B",    // Gold/Amber
+          accent: "#3B82F6",       // Electric Blue
+          background: "#0B1120",   // Dark background
+          card: "#111827",         // Midnight slate card
+          text: "#F8FAFC",         // Warm-white
+          muted: "#94A3B8",        // Muted gray
+          goldLight: "#E8B86D",    // Light Gold
         },
       },
       borderRadius: {
@@ -60,7 +61,8 @@ const config: Config = {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
+        sans: ["var(--font-sans)", "system-ui", "sans-serif"],
+        serif: ["var(--font-serif)", "Georgia", "serif"],
       },
       fontSize: {
         "display-xl": ["4.5rem", { lineHeight: "1.1", letterSpacing: "-0.02em" }],

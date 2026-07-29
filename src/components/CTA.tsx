@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { ArrowRight, Sparkles } from "lucide-react"
+import { ArrowRight, Sparkles, Phone } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 
@@ -21,60 +21,62 @@ export default function CTA({
   description,
   primaryText,
   primaryHref,
-  secondaryText,
-  secondaryHref,
-  variant = "default",
+  secondaryText = "Call Main Office",
+  secondaryHref = "tel:+19177377623",
   className,
 }: CTAProps) {
-  const variants = {
-    default: "bg-white",
-    dark: "bg-brand-primary text-white",
-    gradient: "bg-gradient-to-br from-brand-primary via-slate-900 to-slate-800 text-white",
-  }
-
   return (
     <motion.section
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.6 }}
-      className={cn("relative overflow-hidden py-16 lg:py-24", variants[variant], className)}
+      className={cn("relative overflow-hidden py-24 lg:py-32 bg-brand-primary text-white border-t border-white/5", className)}
       aria-labelledby="cta-heading"
     >
-      {variant === "gradient" && (
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-brand-secondary/20 via-transparent to-transparent" aria-hidden="true" />
-      )}
+      {/* Background SVG overlays */}
+      <div className="absolute inset-0 bg-[url('/geometric-pattern.svg')] opacity-[0.04] bg-repeat pointer-events-none" />
 
-      <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+      {/* Golden glow behind text - larger and more prominent */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] rounded-full bg-brand-secondary/20 blur-[150px] pointer-events-none animate-glow-pulse" />
+
+      {/* Secondary subtle glow */}
+      <div className="absolute top-1/3 right-1/4 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full bg-brand-accent/10 blur-[120px] pointer-events-none" />
+
+      <div className="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 text-center z-10">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
           transition={{ delay: 0.2, duration: 0.5 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 mb-6 backdrop-blur-sm"
+          className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-brand-secondary/5 border border-brand-secondary/20 mb-8 backdrop-blur-sm"
         >
-          <Sparkles className="h-4 w-4 text-brand-accent" aria-hidden="true" />
-          <span className="text-sm font-medium">Ready to Get Started?</span>
+          <Sparkles className="h-4 w-4 text-brand-secondary" aria-hidden="true" />
+          <span className="text-xs sm:text-sm font-sans font-medium text-brand-secondary">Ready to Start?</span>
         </motion.div>
 
-        <h2 id="cta-heading" className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white text-balance mb-6">
+        <h2 id="cta-heading" className="font-serif text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white text-balance mb-6 text-glow-gold leading-[1.05]">
           {title}
         </h2>
 
-        <p className="text-lg text-white/80 mb-10 max-w-2xl mx-auto leading-relaxed">
+        <p className="text-base sm:text-lg text-slate-300 mb-12 max-w-3xl mx-auto leading-relaxed font-sans">
           {description}
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Button variant={variant === "dark" ? "accent" : "premium"} size="xl" asChild className="w-full sm:w-auto">
+          <Button size="xl" className="w-full sm:w-auto bg-gradient-to-r from-brand-secondary to-brand-goldLight text-slate-950 font-semibold rounded-full shadow-xl shadow-brand-secondary/30 group" asChild>
             <a href={primaryHref}>
               {primaryText}
-              <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
+              <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" aria-hidden="true" />
             </a>
           </Button>
 
           {secondaryText && secondaryHref && (
-            <Button variant="outline" size="xl" className="w-full border-white/30 bg-transparent text-white hover:bg-white/10 hover:text-white sm:w-auto" asChild>
-              <a href={secondaryHref}>{secondaryText}</a>
+            <Button variant="outline" size="xl" className="w-full sm:w-auto border-white/10 bg-white/5 text-white hover:bg-white/10 hover:text-white rounded-full font-medium" asChild>
+              <a href={secondaryHref} className="flex items-center justify-center gap-2">
+                <Phone className="h-4.5 w-4.5 text-brand-secondary" />
+                {secondaryText}
+              </a>
             </Button>
           )}
         </div>

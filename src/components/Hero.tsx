@@ -1,144 +1,185 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { ArrowRight, Star, Shield, CheckCircle, Award } from "lucide-react"
+import { ArrowRight, Star, Shield, CheckCircle, Award, Sparkles, Car, GraduationCap, Award as AwardIcon } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import Image from "next/image"
+import Link from "next/link"
 import { cn } from "@/lib/utils"
 
-const stats = [
-  { value: "14+", label: "Years of Experience", icon: Award },
-  { value: "15,000+", label: "Students Trained", icon: Star },
-  { value: "98%", label: "Road Test Pass Rate", icon: CheckCircle },
-  { value: "5,000+", label: "Tax Returns Filed", icon: Shield },
+const trustBadges = [
+  { text: "NYS DMV Licensed", icon: AwardIcon },
+  { text: "IRS Registered Preparer", icon: Shield },
+  { text: "14+ Years of Service", icon: Sparkles },
+  { text: "98% Pass Rate", icon: CheckCircle },
 ]
 
-const trustBadges = [
-  { text: "NYS DMV Licensed", icon: Award },
-  { text: "IRS Registered Preparer", icon: Shield },
-  { text: "Fully Insured & Bonded", icon: CheckCircle },
-  { text: "BBB A+ Rated", icon: Star },
+const floatingStats = [
+  { value: "15K+", label: "Students Trained" },
+  { value: "98%", label: "Road Test Pass Rate" },
+  { value: "5★", label: "Google Rating" },
 ]
 
 export default function Hero() {
   return (
-    <section className="relative flex min-h-[calc(100svh-4rem)] items-center justify-center overflow-hidden lg:min-h-[760px]" aria-labelledby="hero-heading">
-      <div className="absolute inset-0 bg-gradient-to-br from-brand-primary via-slate-900 to-slate-800" aria-hidden="true" />
-      <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-5" aria-hidden="true" />
-      <div className="absolute inset-x-0 top-0 h-32 bg-brand-secondary/10" aria-hidden="true" />
+    <section className="relative min-h-[calc(100vh-3.5rem)] flex items-center justify-center overflow-hidden bg-brand-primary py-12 lg:py-24" aria-labelledby="hero-heading">
+      {/* Background Gradient Mesh */}
+      <div className="absolute inset-0 bg-gradient-to-tr from-brand-primary via-[#0f172a] to-[#1e1b4b]" aria-hidden="true" />
 
-      <div className="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-20 lg:px-8 lg:py-28">
-        <motion.div
-          initial={false}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-center max-w-4xl mx-auto"
-        >
-          <motion.div
-            initial={false}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2, duration: 0.5 }}
-            className="inline-flex max-w-full flex-wrap items-center justify-center gap-x-3 gap-y-1 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-center backdrop-blur-sm"
-          >
-            <span className="text-sm font-medium text-white">Established 2011 • Bronx, NY</span>
-            <span className="hidden text-white/60 sm:inline">|</span>
-            <span className="text-sm font-medium text-brand-accent">Licensed & Insured</span>
-          </motion.div>
+      {/* Animated Gradient Blobs */}
+      <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full bg-brand-secondary/15 blur-[80px] animate-float-orb" aria-hidden="true" />
+      <div className="absolute bottom-1/4 right-1/4 translate-x-1/2 translate-y-1/2 w-96 h-96 rounded-full bg-brand-accent/10 blur-[100px] animate-glow-pulse" aria-hidden="true" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-brand-secondary/5 blur-[150px] pointer-events-none" aria-hidden="true" />
 
-          <motion.h1
-            id="hero-heading"
-            initial={false}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.6 }}
-            className="mt-6 text-3xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl"
-          >
-            Your Trusted Partner for{" "}
-            <span className="relative">
-              <span className="relative z-10">Professional Driving Education</span>
-              <span className="absolute bottom-2 left-0 right-0 h-3 bg-brand-accent/30 -z-10" aria-hidden="true" />
-            </span>{" "}
-            &{" "}
-            <span className="relative">
-              <span className="relative z-10">Expert Tax Services</span>
-              <span className="absolute bottom-2 left-0 right-0 h-3 bg-brand-accent/30 -z-10" aria-hidden="true" />
-            </span>
-          </motion.h1>
+      {/* Seamless Geometric Pattern Overlay */}
+      <div className="absolute inset-0 bg-[url('/geometric-pattern.svg')] opacity-[0.04] bg-repeat pointer-events-none" aria-hidden="true" />
 
-          <motion.p
-            initial={false}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.6 }}
-            className="mx-auto mb-8 max-w-2xl text-base leading-relaxed text-white/80 sm:text-xl lg:mb-10"
-          >
-            Serving the Bronx community for over 14 years with comprehensive driver training, tax preparation,
-            and business services. Licensed, insured, and committed to your success.
-          </motion.p>
+      {/* Floating decorative orbs */}
+      <div className="absolute top-20 right-20 w-24 h-24 rounded-full bg-brand-secondary/10 blur-[40px] animate-float-orb" style={{ animationDelay: "0s" }} aria-hidden="true" />
+      <div className="absolute bottom-20 left-20 w-16 h-16 rounded-full bg-brand-accent/10 blur-[30px] animate-float-orb" style={{ animationDelay: "2s" }} aria-hidden="true" />
+      <div className="absolute top-1/2 left-10 w-12 h-12 rounded-full bg-brand-goldLight/10 blur-[20px] animate-float-orb" style={{ animationDelay: "4s" }} aria-hidden="true" />
 
-          <motion.div
-            initial={false}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.6 }}
-            className="mb-10 flex flex-col items-center justify-center gap-3 sm:flex-row lg:mb-14"
-          >
-            <Button variant="premium" size="xl" asChild className="w-full sm:w-auto">
-              <a href="/contact">Get Started Today</a>
-            </Button>
-            <Button variant="outline" size="xl" className="w-full border-white/30 bg-transparent text-white hover:bg-white/10 hover:text-white sm:w-auto" asChild>
-              <a href="/about">Learn More</a>
-            </Button>
-          </motion.div>
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full z-10">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
 
-          <motion.div
-            initial={false}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.6, duration: 0.6 }}
-            className="grid grid-cols-2 gap-3 text-white/75 sm:flex sm:flex-wrap sm:items-center sm:justify-center sm:gap-6"
-          >
-            {trustBadges.map((badge, index) => (
-              <span key={badge.text} className="flex items-center justify-center gap-2 text-center text-xs sm:text-sm">
-                <badge.icon className="h-4 w-4 text-brand-accent" aria-hidden="true" />
-                {badge.text}
-              </span>
-            ))}
-          </motion.div>
-        </motion.div>
+          {/* Left Column: Text Content */}
+          <div className="lg:col-span-7 space-y-6 text-left">
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="inline-flex items-center gap-2 rounded-full border border-brand-secondary/30 bg-brand-secondary/5 px-4 py-1.5 backdrop-blur-md"
+            >
+              <Sparkles className="h-4 w-4 text-brand-secondary" />
+              <span className="text-xs sm:text-sm font-sans font-medium text-brand-secondary">Established 2011 · Bronx, NY</span>
+            </motion.div>
 
-        <motion.div
-          initial={false}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.7, duration: 0.8 }}
-          className="mt-12 lg:mt-16"
-        >
-          <div className="grid grid-cols-2 gap-5 md:grid-cols-4 lg:gap-8">
-            {stats.map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                initial={false}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.7 + index * 0.1, duration: 0.5 }}
-                className="text-center"
-              >
-                <div className="mb-3 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-white/10 backdrop-blur-sm sm:h-14 sm:w-14" aria-hidden="true">
-                  <stat.icon className="h-5 w-5 text-brand-accent sm:h-7 sm:w-7" />
+            <motion.h1
+              id="hero-heading"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.15, duration: 0.6 }}
+              className="font-serif text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.05] tracking-tight text-balance"
+            >
+              That&apos;s the Beauty of It, We&apos;re a <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-secondary to-brand-goldLight">Beast</span> at What We Do!
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.6 }}
+              className="max-w-xl text-base sm:text-lg font-sans text-slate-300 leading-relaxed"
+            >
+              Get NYS DMV certified training or professional tax solutions tailored for individuals and local businesses.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.6 }}
+              className="flex flex-col sm:flex-row gap-4 pt-2"
+            >
+              <Button size="xl" className="bg-gradient-to-r from-brand-secondary to-brand-goldLight text-slate-950 hover:opacity-90 font-semibold rounded-full shadow-lg shadow-brand-secondary/20 group" asChild>
+                <Link href="/driving-school">
+                  Book a Lesson
+                  <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+                </Link>
+              </Button>
+              <Button variant="outline" size="xl" className="border-white/10 bg-white/5 text-white hover:bg-white/10 hover:text-white rounded-full font-medium" asChild>
+                <Link href="/tax-services">Tax Services</Link>
+              </Button>
+            </motion.div>
+
+            {/* Trust Strip */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.55, duration: 0.8 }}
+              className="pt-8 border-t border-white/5 grid grid-cols-2 gap-4 max-w-lg"
+            >
+              {trustBadges.map((badge) => (
+                <div key={badge.text} className="flex items-center gap-2 text-slate-400">
+                  <badge.icon className="h-4.5 w-4.5 text-brand-secondary flex-shrink-0" aria-hidden="true" />
+                  <span className="text-xs sm:text-sm font-medium">{badge.text}</span>
                 </div>
-                <div className="text-2xl font-bold text-white sm:text-4xl">{stat.value}</div>
-                <div className="mt-1 text-xs text-white/60 sm:text-sm">{stat.label}</div>
-              </motion.div>
-            ))}
+              ))}
+            </motion.div>
           </div>
-        </motion.div>
-      </div>
 
-      <motion.div
-        initial={false}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.2, duration: 0.8 }}
-        className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 animate-bounce sm:block"
-        aria-hidden="true"
-      >
-        <svg className="h-8 w-8 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-        </svg>
-      </motion.div>
+          {/* Right Column: Premium Visual Card */}
+          <div className="lg:col-span-5 relative flex justify-center items-center">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.25, duration: 0.8 }}
+              className="relative w-full max-w-[440px] aspect-[4/5] rounded-3xl overflow-hidden glass-panel-gold p-4 flex flex-col justify-between shadow-2xl group"
+            >
+              {/* Subtle pattern background in the card */}
+              <div className="absolute inset-0 bg-[url('/geometric-pattern.svg')] opacity-[0.03] bg-repeat pointer-events-none" />
+
+              {/* Glow accent behind card content */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-44 h-44 rounded-full bg-brand-secondary/20 blur-[50px] pointer-events-none" />
+
+              {/* Card Header stats */}
+              <div className="relative z-10 flex justify-between items-start">
+                <span className="px-3 py-1 rounded-full bg-white/5 border border-white/10 backdrop-blur-md text-[10px] sm:text-xs text-slate-300 font-sans">
+                  ⭐ 5.0 Google Rating
+                </span>
+                <span className="px-3 py-1 rounded-full bg-brand-secondary/15 border border-brand-secondary/25 text-[10px] sm:text-xs text-brand-secondary font-medium font-sans">
+                  Bronx, NY
+                </span>
+              </div>
+
+              {/* Main Image */}
+              <div className="relative flex-1 flex items-center justify-center py-6">
+                <Image
+                  src="/luxury_sedan_hero.png"
+                  alt="Luxury vehicle silhouette"
+                  fill
+                  className="object-contain p-2 transition-transform duration-700 group-hover:scale-105"
+                  priority
+                />
+              </div>
+
+              {/* Floating Stat Cards inside Right Column wrapper */}
+              {floatingStats.map((stat, idx) => (
+                <motion.div
+                  key={stat.value}
+                  initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  transition={{ delay: 0.6 + idx * 0.15, duration: 0.6, ease: "easeOut" }}
+                  className={cn(
+                    "absolute bg-slate-900/90 border border-white/15 rounded-2xl p-3 shadow-xl backdrop-blur-md z-20",
+                    idx === 0 && "-left-6 top-[25%] animate-float-orb",
+                    idx === 1 && "-right-6 bottom-[20%]",
+                    idx === 2 && "left-1/2 -translate-x-1/2 top-4"
+                  )}
+                >
+                  <div className="text-xl sm:text-2xl font-bold text-brand-secondary text-center">{stat.value}</div>
+                  <div className="text-[10px] text-slate-400 font-medium text-center uppercase tracking-wide">{stat.label}</div>
+                </motion.div>
+              ))}
+
+              {/* Card Footer text */}
+              <div className="relative z-10 bg-slate-950/40 border border-white/5 rounded-2xl p-4 backdrop-blur-sm">
+                <div className="font-serif text-lg text-white mb-1">Modern Fleet & Pro Instructors</div>
+                <p className="text-xs text-slate-400">Learn in dual-control, air-conditioned premium sedans.</p>
+              </div>
+            </motion.div>
+
+            {/* Glowing ring behind the card */}
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+              className="absolute w-[480px] h-[480px] border border-brand-secondary/15 rounded-full -z-10 pointer-events-none"
+            />
+
+            {/* Subtle geometric accent rings */}
+            <div className="absolute w-[520px] h-[520px] border border-brand-secondary/5 rounded-full -z-10 pointer-events-none" />
+          </div>
+
+        </div>
+      </div>
     </section>
   )
 }

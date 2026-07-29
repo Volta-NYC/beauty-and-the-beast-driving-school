@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { cn } from "@/lib/utils"
 
 const contactInfo = {
@@ -73,8 +72,6 @@ export default function Contact() {
     // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1500))
 
-    // In a real app, this would be an actual API call
-    // For now, we'll simulate success
     setSubmitStatus("success")
     setFormData({
       firstName: "",
@@ -98,59 +95,85 @@ export default function Contact() {
   }
 
   return (
-    <section className="py-20 lg:py-32 bg-white" aria-labelledby="contact-heading">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section
+      className="relative py-24 lg:py-32 overflow-hidden bg-brand-primary"
+      aria-labelledby="contact-heading"
+    >
+      {/* Geometric overlay */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-[0.03]"
+        style={{
+          backgroundImage: "url('/geometric-pattern.svg')",
+          backgroundRepeat: "repeat",
+          backgroundSize: "120px 120px",
+        }}
+        aria-hidden="true"
+      />
+
+      {/* Gradient blob accents */}
+      <div className="absolute top-1/3 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full bg-brand-secondary/10 blur-[100px] pointer-events-none" aria-hidden="true" />
+      <div className="absolute bottom-1/4 right-1/4 -translate-x-1/2 -translate-y-1/2 w-[250px] h-[250px] rounded-full bg-brand-accent/10 blur-[100px] pointer-events-none" aria-hidden="true" />
+
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto mb-16"
+          className="text-center max-w-2xl mx-auto mb-16"
         >
-          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-secondary/10 text-brand-secondary text-sm font-medium mb-6">
-            Contact Us
-          </span>
-          <h2 id="contact-heading" className="text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-primary text-balance mb-6">
-            Let&apos;s Start Your Journey
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-brand-secondary/30 bg-brand-secondary/5 mb-6">
+            <span className="text-xs font-semibold tracking-[0.12em] uppercase text-brand-secondary">Contact Us</span>
+          </div>
+          <h2
+            id="contact-heading"
+            className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white text-balance mb-4"
+          >
+            Let&apos;s Start Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-secondary to-brand-goldLight">Journey Today</span>
           </h2>
-          <p className="text-lg text-slate-600 leading-relaxed">
-            Have questions about driving lessons, tax preparation, or our other services?
-            Our friendly team is here to help. Call, email, or fill out the form below.
+          <p className="text-sm leading-relaxed text-slate-400">
+            Our team is here to answer your driving education, tax preparation, or business inquiries.
           </p>
         </motion.div>
 
+        {/* Contact info grid */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, staggerChildren: 0.1 }}
-          className="grid lg:grid-cols-3 gap-8 mb-20"
+          className="grid lg:grid-cols-3 gap-6 mb-20"
         >
           {[
-            { icon: MapPin, title: "Visit Us", content: contactInfo.address, color: "text-blue-500", bg: "bg-blue-50" },
-            { icon: Phone, title: "Call Us", content: contactInfo.phone, href: `tel:${contactInfo.phone}`, color: "text-emerald-500", bg: "bg-emerald-50" },
-            { icon: Mail, title: "Email Us", content: contactInfo.email, href: `mailto:${contactInfo.email}`, color: "text-amber-500", bg: "bg-amber-50" },
+            { icon: MapPin, title: "Visit Us", content: contactInfo.address, color: "text-brand-secondary", bg: "rgba(201,151,75,0.08)" },
+            { icon: Phone, title: "Call Us", content: contactInfo.phone, href: `tel:${contactInfo.phone}`, color: "text-brand-accent", bg: "rgba(59,130,246,0.08)" },
+            { icon: Mail, title: "Email Us", content: contactInfo.email, href: `mailto:${contactInfo.email}`, color: "text-brand-goldLight", bg: "rgba(232,184,109,0.08)" },
           ].map((item, index) => (
             <motion.div key={item.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-              <Card className="h-full border-slate-200 hover:border-brand-secondary/50 hover:shadow-lg transition-all duration-300">
-                <CardContent className="p-6">
-                  <div className={cn("w-12 h-12 rounded-xl flex items-center justify-center mb-4", item.bg)}>
-                    <item.icon className={cn("h-6 w-6", item.color)} aria-hidden="true" />
-                  </div>
-                  <CardTitle className="text-lg mb-2">{item.title}</CardTitle>
-                  {item.href ? (
-                    <a href={item.href} className={cn("text-slate-600 hover:text-brand-primary transition-colors", item.color)}>
-                      {item.content}
-                    </a>
-                  ) : (
-                    <address className="text-slate-600 not-italic">{item.content}</address>
-                  )}
-                </CardContent>
-              </Card>
+              <div
+                className="h-full glass-panel-gold rounded-2xl p-6 transition-all duration-300 hover:border-brand-secondary/40"
+                onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.borderColor = "rgba(201,151,75,0.25)" }}
+                onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.08)" }}
+              >
+                <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style={{ backgroundColor: item.bg }}>
+                  <item.icon className={cn("h-6 w-6", item.color)} aria-hidden="true" />
+                </div>
+                <h3 className="text-sm font-semibold text-white mb-2">{item.title}</h3>
+                {item.href ? (
+                  <a href={item.href} className="text-sm transition-colors hover:text-brand-secondary" style={{ color: "#94A3B8" }}>
+                    {item.content}
+                  </a>
+                ) : (
+                  <address className="text-sm not-italic" style={{ color: "#94A3B8" }}>{item.content}</address>
+                )}
+              </div>
             </motion.div>
           ))}
         </motion.div>
 
+        {/* Form and Hours */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -158,163 +181,176 @@ export default function Contact() {
           transition={{ duration: 0.8 }}
           className="grid lg:grid-cols-2 gap-12"
         >
+          {/* Hours Card */}
           <div>
-            <h3 className="text-2xl font-bold text-brand-primary mb-6">Business Hours</h3>
-            <dl className="space-y-4">
-              {contactInfo.hours.map((hour) => (
-                <div key={hour.days} className="flex justify-between py-3 border-b border-slate-100 last:border-0">
-                  <dt className="font-medium text-slate-900">{hour.days}</dt>
-                  <dd className="text-slate-600 text-right">{hour.hours}</dd>
-                </div>
-              ))}
-            </dl>
+            <h3 className="font-serif text-xl font-bold text-white mb-6">Business Hours</h3>
+            <div className="glass-panel rounded-2xl p-6 mb-8">
+              <dl className="space-y-4">
+                {contactInfo.hours.map((hour) => (
+                  <div key={hour.days} className="flex justify-between py-3 border-b" style={{ borderColor: "rgba(255,255,255,0.05)" }}>
+                    <dt className="text-xs font-semibold text-slate-400">{hour.days}</dt>
+                    <dd className="text-xs font-medium text-right text-slate-500">{hour.hours}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
 
-            <div className="mt-8 p-6 rounded-xl bg-slate-50">
-              <h4 className="font-semibold text-brand-primary mb-3 flex items-center gap-2">
-                <Clock className="h-5 w-5" aria-hidden="true" />
+            <div className="glass-panel-gold rounded-2xl p-6">
+              <h4 className="text-sm font-semibold text-white mb-3 flex items-center gap-2">
+                <Clock className="h-4 w-4 text-brand-secondary" aria-hidden="true" />
                 Quick Response Guarantee
               </h4>
-              <p className="text-slate-600">
-                We respond to all inquiries within 2 hours during business hours.
-                For urgent tax matters, call our direct line.
+              <p className="text-xs leading-relaxed text-slate-400">
+                We respond to all online inquiries within 2 hours during normal business hours. For immediate assistance with scheduling or tax questions, please call our offices directly.
               </p>
             </div>
           </div>
 
+          {/* Form Card */}
           <div>
-            <Card className="border-slate-200">
-              <CardHeader>
-                <CardTitle className="text-xl">Send Us a Message</CardTitle>
-                <p className="text-slate-600">We&apos;ll get back to you within 2 business hours.</p>
-              </CardHeader>
-              <CardContent>
-                {submitStatus === "success" && (
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    className="mb-6 p-4 rounded-lg bg-emerald-50 border border-emerald-200 flex items-center gap-3"
-                    role="alert"
-                  >
-                    <CheckCircle className="h-5 w-5 text-emerald-600 flex-shrink-0" aria-hidden="true" />
-                    <div>
-                      <p className="font-medium text-emerald-800">Message Sent Successfully!</p>
-                      <p className="text-sm text-emerald-700">Thank you for contacting us. We&apos;ll be in touch soon.</p>
-                    </div>
-                  </motion.div>
-                )}
+            <div className="glass-panel-gold rounded-3xl p-6 md:p-8 shadow-xl">
+              <h3 className="font-serif text-xl font-bold text-white mb-1">Send Us a Message</h3>
+              <p className="text-xs mb-6 text-slate-400">Fill out the form below to get started.</p>
 
-                {submitStatus === "error" && (
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    className="mb-6 p-4 rounded-lg bg-red-50 border border-red-200 flex items-center gap-3"
-                    role="alert"
-                  >
-                    <AlertCircle className="h-5 w-5 text-red-600 flex-shrink-0" aria-hidden="true" />
-                    <div>
-                      <p className="font-medium text-red-800">Something Went Wrong</p>
-                      <p className="text-sm text-red-700">{errorMessage || "Please try again or call us directly."}</p>
-                    </div>
-                  </motion.div>
-                )}
+              {submitStatus === "success" && (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="mb-6 p-4 rounded-lg bg-emerald-950/40 border border-emerald-800/60 flex items-center gap-3"
+                  role="alert"
+                >
+                  <CheckCircle className="h-5 w-5 text-emerald-400 flex-shrink-0" aria-hidden="true" />
+                  <div>
+                    <p className="text-xs font-semibold text-emerald-200">Message Sent Successfully!</p>
+                    <p className="text-[11px] text-emerald-400 mt-0.5">Thank you. We will get back to you shortly.</p>
+                  </div>
+                </motion.div>
+              )}
 
-                <form onSubmit={handleSubmit} className="space-y-4" noValidate>
-                  <div className="grid sm:grid-cols-2 gap-4">
-                    {formFields.slice(0, 4).map((field) => (
-                      <div key={field.name} className={field.name === "phone" ? "sm:col-span-2" : ""}>
-                        <Label htmlFor={field.name} className="block text-sm font-medium text-slate-700 mb-1.5">
-                          {field.label} <span className="text-red-500" aria-hidden="true">*</span>
-                        </Label>
-                        <Input
-                          id={field.name}
-                          name={field.name}
-                          type={field.type}
-                          placeholder={field.placeholder}
-                          value={formData[field.name as keyof typeof formData] as string}
-                          onChange={handleChange}
-                          error={!!errors[field.name]}
-                          aria-invalid={!!errors[field.name]}
-                          aria-describedby={errors[field.name] ? `${field.name}-error` : undefined}
-                          required
-                        />
-                        {errors[field.name] && (
-                          <p id={`${field.name}-error`} className="mt-1 text-sm text-red-600" role="alert">
-                            {errors[field.name]}
-                          </p>
+              {submitStatus === "error" && (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="mb-6 p-4 rounded-lg bg-red-950/40 border border-red-800/60 flex items-center gap-3"
+                  role="alert"
+                >
+                  <AlertCircle className="h-5 w-5 text-red-400 flex-shrink-0" aria-hidden="true" />
+                  <div>
+                    <p className="text-xs font-semibold text-red-200">Something Went Wrong</p>
+                    <p className="text-[11px] text-red-400 mt-0.5">{errorMessage || "Please try again or call us."}</p>
+                  </div>
+                </motion.div>
+              )}
+
+              <form onSubmit={handleSubmit} className="space-y-4" noValidate>
+                <div className="grid sm:grid-cols-2 gap-4">
+                  {formFields.slice(0, 4).map((field) => (
+                    <div key={field.name} className={field.name === "phone" ? "sm:col-span-2" : ""}>
+                      <Label htmlFor={field.name} className="block text-xs font-semibold text-slate-300 mb-1.5">
+                        {field.label} <span className="text-brand-secondary" aria-hidden="true">*</span>
+                      </Label>
+                      <Input
+                        id={field.name}
+                        name={field.name}
+                        type={field.type}
+                        placeholder={field.placeholder}
+                        value={formData[field.name as keyof typeof formData] as string}
+                        onChange={handleChange}
+                        className={cn(
+                          "bg-white/4 border-white/10 text-white placeholder-slate-500 focus-visible:ring-brand-secondary",
+                          errors[field.name] && "border-red-500/80 focus-visible:ring-red-500"
                         )}
-                      </div>
-                    ))}
-                  </div>
-
-                  <div>
-                    <Label htmlFor="service" className="block text-sm font-medium text-slate-700 mb-1.5">
-                      Service of Interest <span className="text-red-500" aria-hidden="true">*</span>
-                    </Label>
-                    <select
-                      id="service"
-                      name="service"
-                      value={formData.service}
-                      onChange={handleChange}
-                      className={cn(
-                        "flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 transition-colors",
-                        errors.service && "border-red-500 focus-visible:ring-red-500"
+                        aria-invalid={!!errors[field.name]}
+                        aria-describedby={errors[field.name] ? `${field.name}-error` : undefined}
+                        required
+                      />
+                      {errors[field.name] && (
+                        <p id={`${field.name}-error`} className="mt-1 text-xs text-red-400" role="alert">
+                          {errors[field.name]}
+                        </p>
                       )}
-                      required
-                      aria-invalid={!!errors.service}
-                      aria-describedby={errors.service ? "service-error" : undefined}
-                    >
-                      {formFields[4].options?.map((opt) => (
-                        <option key={opt.value} value={opt.value}>
-                          {opt.label}
-                        </option>
-                      ))}
-                    </select>
-                    {errors.service && (
-                      <p id="service-error" className="mt-1 text-sm text-red-600" role="alert">
-                        {errors.service}
-                      </p>
-                    )}
-                  </div>
+                    </div>
+                  ))}
+                </div>
 
-                  <div>
-                    <Label htmlFor="message" className="block text-sm font-medium text-slate-700 mb-1.5">
-                      Message <span className="text-red-500" aria-hidden="true">*</span>
-                    </Label>
-                    <Textarea
-                      id="message"
-                      name="message"
-                      placeholder="Tell us about your needs..."
-                      value={formData.message}
-                      onChange={handleChange}
-                      error={!!errors.message}
-                      aria-invalid={!!errors.message}
-                      aria-describedby={errors.message ? "message-error" : undefined}
-                      rows={5}
-                      required
-                    />
-                    {errors.message && (
-                      <p id="message-error" className="mt-1 text-sm text-red-600" role="alert">
-                        {errors.message}
-                      </p>
+                <div>
+                  <Label htmlFor="service" className="block text-xs font-semibold text-slate-300 mb-1.5">
+                    Service of Interest <span className="text-brand-secondary" aria-hidden="true">*</span>
+                  </Label>
+                  <select
+                    id="service"
+                    name="service"
+                    value={formData.service}
+                    onChange={handleChange}
+                    className={cn(
+                      "flex h-10 w-full rounded-md border border-white/10 bg-brand-primary text-slate-300 px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-secondary transition-colors",
+                      errors.service && "border-red-500/80 focus-visible:ring-red-500"
                     )}
-                  </div>
+                    required
+                    aria-invalid={!!errors.service}
+                    aria-describedby={errors.service ? "service-error" : undefined}
+                  >
+                    {formFields[4].options?.map((opt) => (
+                      <option key={opt.value} value={opt.value} className="bg-brand-primary text-slate-300">
+                        {opt.label}
+                      </option>
+                    ))}
+                  </select>
+                  {errors.service && (
+                    <p id="service-error" className="mt-1 text-xs text-red-400" role="alert">
+                      {errors.service}
+                    </p>
+                  )}
+                </div>
 
-                  <Button type="submit" variant="premium" size="lg" className="w-full" loading={submitStatus === "loading"}>
-                    {submitStatus === "loading" ? (
-                      <>
-                        <Loader2 className="mr-2 h-4 w-4 animate-spin" aria-hidden="true" />
-                        Sending...
-                      </>
-                    ) : (
-                      <>
-                        Send Message
-                        <Send className="ml-2 h-4 w-4" aria-hidden="true" />
-                      </>
+                <div>
+                  <Label htmlFor="message" className="block text-xs font-semibold text-slate-300 mb-1.5">
+                    Message <span className="text-brand-secondary" aria-hidden="true">*</span>
+                  </Label>
+                  <Textarea
+                    id="message"
+                    name="message"
+                    placeholder="Tell us about your needs..."
+                    value={formData.message}
+                    onChange={handleChange}
+                    className={cn(
+                      "bg-white/4 border-white/10 text-white placeholder-slate-500 focus-visible:ring-brand-secondary",
+                      errors.message && "border-red-500/80 focus-visible:ring-red-500"
                     )}
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
+                    aria-invalid={!!errors.message}
+                    aria-describedby={errors.message ? "message-error" : undefined}
+                    rows={5}
+                    required
+                  />
+                  {errors.message && (
+                    <p id="message-error" className="mt-1 text-xs text-red-400" role="alert">
+                      {errors.message}
+                    </p>
+                  )}
+                </div>
+
+                <Button
+                  type="submit"
+                  className="w-full text-slate-950 font-semibold text-sm transition-all duration-300"
+                  style={{
+                    background: "linear-gradient(135deg, #E8B86D, #C9974B)",
+                  }}
+                  loading={submitStatus === "loading"}
+                >
+                  {submitStatus === "loading" ? (
+                    <>
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" aria-hidden="true" />
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      Send Message
+                      <Send className="ml-2 h-4 w-4" aria-hidden="true" />
+                    </>
+                  )}
+                </Button>
+              </form>
+            </div>
           </div>
         </motion.div>
       </div>
