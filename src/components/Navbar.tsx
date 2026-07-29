@@ -44,9 +44,7 @@ const navigation = [
       { name: "Pro-Se Divorce Service", href: "/services#divorce", description: "Self-representation assistance" },
     ],
   },
-  { name: "Locations", href: "/locations" },
-  { name: "FAQ", href: "/faq" },
-  { name: "Blog", href: "/blog" },
+  { name: "Contact", href: "/contact" },
 ]
 
 export default function Navbar() {
