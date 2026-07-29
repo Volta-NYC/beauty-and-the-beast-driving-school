@@ -130,13 +130,13 @@ export default function Hero() {
                 </span>
               </div>
 
-              {/* Main Image */}
+              {/* Main Image - Real photo of their Bronx location */}
               <div className="relative flex-1 flex items-center justify-center py-6">
                 <Image
-                  src="/luxury_sedan_hero.png"
-                  alt="Luxury vehicle silhouette"
+                  src="/front-building.png"
+                  alt="Beauty & The Beast Driving School - 909 E 169th St, Bronx NY"
                   fill
-                  className="object-contain p-2 transition-transform duration-700 group-hover:scale-105"
+                  className="object-cover rounded-xl transition-transform duration-700 group-hover:scale-105"
                   priority
                 />
               </div>
@@ -162,8 +162,8 @@ export default function Hero() {
 
               {/* Card Footer text */}
               <div className="relative z-10 bg-slate-950/40 border border-white/5 rounded-2xl p-4 backdrop-blur-sm">
-                <div className="font-serif text-lg text-white mb-1">Modern Fleet & Pro Instructors</div>
-                <p className="text-xs text-slate-400">Learn in dual-control, air-conditioned premium sedans.</p>
+                <div className="font-serif text-lg text-white mb-1">Our Bronx Location Since 2011</div>
+                <p className="text-xs text-slate-400">909 E 169th St — serving the community for 14+ years.</p>
               </div>
             </motion.div>
 

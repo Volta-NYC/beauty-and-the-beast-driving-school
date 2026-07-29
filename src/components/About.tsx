@@ -37,8 +37,8 @@ export default function About() {
             >
               {/* Generated Image overlay */}
               <Image
-                src="/driving_school_about.png"
-                alt="Bronx driving school student learning to drive"
+                src="/classroom-interior.png"
+                alt="Beauty & The Beast Driving School classroom instruction in the Bronx"
                 fill
                 className="object-cover opacity-90 transition-transform duration-700 hover:scale-105"
               />
