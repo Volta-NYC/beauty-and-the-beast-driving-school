@@ -54,6 +54,7 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false)
   const [dropdownOpen, setDropdownOpen] = React.useState<string | null>(null)
   const [scrolled, setScrolled] = React.useState(false)
+  const closeTimeoutRef = React.useRef<ReturnType<typeof setTimeout> | null>(null)
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -66,11 +67,36 @@ export default function Navbar() {
   React.useEffect(() => {
     setMobileMenuOpen(false)
     setDropdownOpen(null)
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current)
+      closeTimeoutRef.current = null
+    }
   }, [pathname])
 
-  const handleDropdownClick = (name: string) => {
-    setDropdownOpen(dropdownOpen === name ? null : name)
-  }
+  const openDropdown = React.useCallback((name: string) => {
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current)
+      closeTimeoutRef.current = null
+    }
+    setDropdownOpen(name)
+  }, [])
+
+  const closeDropdown = React.useCallback(() => {
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current)
+    }
+    closeTimeoutRef.current = setTimeout(() => {
+      setDropdownOpen(null)
+      closeTimeoutRef.current = null
+    }, 200)
+  }, [])
+
+  const cancelClose = React.useCallback(() => {
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current)
+      closeTimeoutRef.current = null
+    }
+  }, [])
 
   return (
     <>
@@ -111,7 +137,9 @@ export default function Navbar() {
                   item={item}
                   pathname={pathname}
                   isOpen={dropdownOpen === item.name}
-                  onToggle={() => handleDropdownClick(item.name)}
+                  onOpen={openDropdown}
+                  onClose={closeDropdown}
+                  onCancelClose={cancelClose}
                 />
               ))}
             </div>
@@ -190,7 +218,7 @@ export default function Navbar() {
                     item={item}
                     pathname={pathname}
                     isOpen={dropdownOpen === item.name}
-                    onToggle={() => handleDropdownClick(item.name)}
+                    onToggle={() => { if (dropdownOpen === item.name) { setDropdownOpen(null); } else { openDropdown(item.name); } }}
                     closeMobileMenu={() => setMobileMenuOpen(false)}
                   />
                 ))}
@@ -211,17 +239,23 @@ export default function Navbar() {
   )
 }
 
+interface DropdownItemProps {
+  item: typeof navigation[0]
+  pathname: string
+  isOpen: boolean
+  onOpen: (name: string) => void
+  onClose: () => void
+  onCancelClose: () => void
+}
+
 function DropdownItem({
   item,
   pathname,
   isOpen,
-  onToggle,
-}: {
-  item: typeof navigation[0]
-  pathname: string
-  isOpen: boolean
-  onToggle: () => void
-}) {
+  onOpen,
+  onClose,
+  onCancelClose,
+}: DropdownItemProps) {
   const isActive = pathname === item.href || (item.hasDropdown && pathname.startsWith(item.href))
 
   if (!item.hasDropdown) {
@@ -242,9 +276,11 @@ function DropdownItem({
   }
 
   return (
-    <div className="relative" onMouseEnter={onToggle} onMouseLeave={() => setTimeout(onToggle, 150)}>
+    <div className="relative">
       <button
-        onClick={onToggle}
+        onClick={() => onOpen(item.name)}
+        onMouseEnter={() => { onCancelClose(); onOpen(item.name); }}
+        onMouseLeave={onClose}
         className={cn(
           "flex items-center gap-1 px-3 py-1.5 text-[13px] font-sans font-medium rounded-full transition-all whitespace-nowrap",
           isActive || isOpen
@@ -271,6 +307,8 @@ function DropdownItem({
             transition={{ duration: 0.15 }}
             className="absolute left-0 top-full z-50 mt-1 w-64 rounded-xl bg-slate-900/95 border border-white/10 backdrop-blur-md py-1.5 shadow-2xl"
             role="menu"
+            onMouseEnter={onCancelClose}
+            onMouseLeave={onClose}
           >
             {item.items?.map((subItem) => (
               <Link
@@ -278,7 +316,7 @@ function DropdownItem({
                 href={subItem.href}
                 className="flex flex-col gap-0.5 px-3.5 py-2 text-slate-300 hover:text-white hover:bg-white/5 transition-colors"
                 role="menuitem"
-                onClick={onToggle}
+                onClick={() => { onClose(); }}
               >
                 <span className="font-medium text-xs sm:text-[13px]">{subItem.name}</span>
                 <span className="text-[10px] text-slate-400 leading-tight">{subItem.description}</span>
