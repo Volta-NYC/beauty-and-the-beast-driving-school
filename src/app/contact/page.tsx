@@ -589,10 +589,10 @@ export default function ContactPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
               >
-                <Card className="border-slate-200 hover:border-brand-secondary/50 hover:shadow-lg transition-all duration-300 h-full">
+                <Card className="h-full border-slate-200 bg-white text-slate-900 shadow-sm transition-all duration-300 hover:border-brand-secondary/50 hover:shadow-lg">
                   <CardContent className="p-6">
-                    <h3 className="font-semibold text-brand-primary mb-2">{faq.q}</h3>
-                    <p className="text-slate-600 leading-relaxed">{faq.a}</p>
+                    <h3 className="mb-2 font-semibold text-slate-950">{faq.q}</h3>
+                    <p className="leading-relaxed text-slate-700">{faq.a}</p>
                   </CardContent>
                 </Card>
               </motion.div>
