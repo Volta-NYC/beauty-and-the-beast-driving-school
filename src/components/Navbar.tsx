@@ -62,15 +62,6 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  React.useEffect(() => {
-    setMobileMenuOpen(false)
-    setDropdownOpen(null)
-    if (closeTimeoutRef.current) {
-      clearTimeout(closeTimeoutRef.current)
-      closeTimeoutRef.current = null
-    }
-  }, [pathname])
-
   const openDropdown = React.useCallback((name: string) => {
     if (closeTimeoutRef.current) {
       clearTimeout(closeTimeoutRef.current)
@@ -96,6 +87,15 @@ export default function Navbar() {
     }
   }, [])
 
+  const closeNavigation = React.useCallback(() => {
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current)
+      closeTimeoutRef.current = null
+    }
+    setMobileMenuOpen(false)
+    setDropdownOpen(null)
+  }, [])
+
   return (
     <>
       <motion.header
@@ -116,6 +116,7 @@ export default function Navbar() {
               href="/"
               className="flex items-center gap-2 font-serif text-white hover:text-brand-secondary transition-colors"
               aria-label="Beauty & The Beast Driving School / Porrata Tax Services - Home"
+              onClick={closeNavigation}
             >
               <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-brand-secondary to-brand-goldLight text-slate-950">
                 <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -138,13 +139,14 @@ export default function Navbar() {
                   onOpen={openDropdown}
                   onClose={closeDropdown}
                   onCancelClose={cancelClose}
+                  onSelect={closeNavigation}
                 />
               ))}
             </div>
 
             <div className="hidden lg:flex lg:items-center lg:gap-3">
               <Button size="sm" className="bg-gradient-to-r from-brand-secondary to-brand-goldLight text-slate-950 hover:opacity-90 transition-opacity rounded-full font-semibold px-5" asChild>
-                <Link href="/contact">Get Started</Link>
+                <Link href="/contact" onClick={closeNavigation}>Get Started</Link>
               </Button>
             </div>
 
@@ -169,7 +171,7 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm lg:hidden"
-            onClick={() => setMobileMenuOpen(false)}
+            onClick={closeNavigation}
             aria-hidden="true"
           />
         )}
@@ -191,7 +193,7 @@ export default function Navbar() {
                 <Link
                   href="/"
                   className="flex items-center gap-2 font-serif text-white"
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={closeNavigation}
                 >
                   <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-brand-secondary to-brand-goldLight text-slate-950">
                     <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -201,7 +203,7 @@ export default function Navbar() {
                   <span className="text-md font-bold">Beauty & The Beast</span>
                 </Link>
                 <button
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={closeNavigation}
                   className="flex h-9 w-9 items-center justify-center rounded-lg text-slate-300 hover:bg-slate-900"
                   aria-label="Close menu"
                 >
@@ -217,13 +219,13 @@ export default function Navbar() {
                     pathname={pathname}
                     isOpen={dropdownOpen === item.name}
                     onToggle={() => { if (dropdownOpen === item.name) { setDropdownOpen(null); } else { openDropdown(item.name); } }}
-                    closeMobileMenu={() => setMobileMenuOpen(false)}
+                    closeMobileMenu={closeNavigation}
                   />
                 ))}
 
                 <div className="pt-6 border-t border-white/10 space-y-4">
                   <Button size="lg" className="w-full bg-gradient-to-r from-brand-secondary to-brand-goldLight text-slate-950 font-semibold rounded-full" asChild>
-                    <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>
+                    <Link href="/contact" onClick={closeNavigation}>
                       Get Started
                     </Link>
                   </Button>
@@ -244,6 +246,7 @@ interface DropdownItemProps {
   onOpen: (name: string) => void
   onClose: () => void
   onCancelClose: () => void
+  onSelect: () => void
 }
 
 function DropdownItem({
@@ -253,6 +256,7 @@ function DropdownItem({
   onOpen,
   onClose,
   onCancelClose,
+  onSelect,
 }: DropdownItemProps) {
   const isActive = pathname === item.href || (item.hasDropdown && pathname.startsWith(item.href))
 
@@ -267,6 +271,7 @@ function DropdownItem({
             : "text-slate-300 hover:text-white hover:bg-white/5"
         )}
         aria-current={isActive ? "page" : undefined}
+        onClick={onSelect}
       >
         {item.name}
       </Link>
@@ -314,7 +319,7 @@ function DropdownItem({
                 href={subItem.href}
                 className="flex flex-col gap-0.5 px-3.5 py-2 text-slate-300 hover:text-white hover:bg-white/5 transition-colors"
                 role="menuitem"
-                onClick={() => { onClose(); }}
+                onClick={onSelect}
               >
                 <span className="font-medium text-xs sm:text-[13px]">{subItem.name}</span>
                 <span className="text-[10px] text-slate-400 leading-tight">{subItem.description}</span>
