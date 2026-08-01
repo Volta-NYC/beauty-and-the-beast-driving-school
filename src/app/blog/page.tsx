@@ -225,7 +225,7 @@ export default function BlogPage() {
                 Subscribe
               </Button>
             </form>
-            <p className="text-xs text-slate-500 mt-4">No spam. Unsubscribe anytime. <Link href="/privacy" className="underline hover:text-brand-secondary">Privacy Policy</Link>.</p>
+            <p className="text-xs text-slate-500 mt-4">No spam. Unsubscribe anytime. <Link href="/terms#privacy" className="underline hover:text-brand-secondary">Privacy Policy</Link>.</p>
           </motion.div>
         </Container>
       </section>

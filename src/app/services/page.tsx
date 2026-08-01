@@ -40,6 +40,12 @@ const additionalServices = [
     href: "#divorce",
     icon: Scale,
   },
+  {
+    title: "Document Translation",
+    description: "Certified English/Spanish translations for immigration, DMV, court, school, and official document needs.",
+    href: "#translation",
+    icon: FileText,
+  },
 ]
 
 export default function ServicesPage() {
@@ -98,7 +104,7 @@ export default function ServicesPage() {
                 <Link href="/contact">Get Started</Link>
               </Button>
               <Button variant="outline" size="xl" className="border-white/30 bg-transparent text-white hover:bg-white/10 hover:text-white" asChild>
-                <Link href="/locations">Visit Us</Link>
+                <Link href="/contact#locations">Visit Us</Link>
               </Button>
             </motion.div>
           </motion.div>
@@ -143,7 +149,7 @@ export default function ServicesPage() {
                   </CardHeader>
                   <CardContent className="pt-0">
                     <Button variant="outline" size="sm" className="w-full" asChild>
-                      <Link href={`/contact${service.href}`}>Learn More</Link>
+                      <Link href={service.href}>Learn More</Link>
                     </Button>
                   </CardContent>
                 </Card>
@@ -340,7 +346,7 @@ export default function ServicesPage() {
               ))}
             </div>
             <Button variant="accent" size="lg" asChild>
-              <Link href="/locations">Get Directions to Castle Hill</Link>
+              <Link href="/contact#locations">Get Directions to Castle Hill</Link>
             </Button>
           </motion.div>
         </Container>
@@ -489,13 +495,76 @@ export default function ServicesPage() {
         </Container>
       </section>
 
+      <section id="translation" className="py-20 lg:py-32 bg-white scroll-mt-20" aria-labelledby="translation-heading">
+        <Container>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+            className="grid lg:grid-cols-2 gap-12 items-center"
+          >
+            <div>
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-secondary/10 text-brand-secondary text-sm font-medium mb-6">
+                <FileText className="h-4 w-4" aria-hidden="true" />
+                Certified Translation
+              </span>
+              <h2 id="translation-heading" className="text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-primary text-balance mb-6">
+                English & Spanish{" "}
+                <span className="text-brand-secondary">Document Translation</span>
+              </h2>
+              <p className="text-slate-600 text-lg mb-8 leading-relaxed">
+                Clear, certified translations for immigration, DMV, school, court, and business documents. Notarized translations are available when required.
+              </p>
+              <ul className="space-y-3 mb-8" role="list">
+                {[
+                  "Birth, marriage, and divorce certificates",
+                  "School records and diplomas",
+                  "DMV and court documents",
+                  "Business and tax documents",
+                  "USCIS-ready certification statements",
+                  "Notarization available on request",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-slate-600">
+                    <CheckCircle className="h-5 w-5 text-brand-secondary flex-shrink-0 mt-0.5" aria-hidden="true" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <Button variant="premium" size="lg" asChild>
+                <Link href="/contact">Request Translation</Link>
+              </Button>
+            </div>
+
+            <Card className="bg-slate-50 border-slate-200">
+              <CardContent className="p-8">
+                <h3 className="text-xl font-bold text-brand-primary mb-4 flex items-center gap-2">
+                  <FileText className="h-5 w-5 text-brand-secondary" aria-hidden="true" />
+                  Common Documents
+                </h3>
+                <p className="text-slate-600 leading-relaxed mb-6">
+                  Bring the original document or a clear scan. We will confirm turnaround time and whether a notarized certification is needed for your destination agency.
+                </p>
+                <div className="grid sm:grid-cols-2 gap-3 text-sm text-slate-600">
+                  {["Immigration", "DMV", "Court", "School", "Business", "Personal records"].map((item) => (
+                    <div key={item} className="rounded-lg border border-slate-200 bg-white px-4 py-3 font-medium">
+                      {item}
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
+        </Container>
+      </section>
+
       <CTA
         title="Need Document or Legal Services?"
         description="Visit either Bronx location for fast, professional service. Walk-ins welcome or book online for priority assistance."
         primaryText="Contact Us"
         primaryHref="/contact"
         secondaryText="View Locations"
-        secondaryHref="/locations"
+        secondaryHref="/contact#locations"
         variant="gradient"
       />
     </>

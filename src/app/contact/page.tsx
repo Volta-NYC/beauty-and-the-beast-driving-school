@@ -312,7 +312,7 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Info & Locations Section */}
-      <section className="py-20 lg:py-32 bg-slate-50" aria-labelledby="locations-heading">
+      <section id="locations" className="py-20 lg:py-32 bg-slate-50 scroll-mt-20" aria-labelledby="locations-heading">
         <Container>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -556,7 +556,7 @@ export default function ContactPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 lg:py-32 bg-white" aria-labelledby="faq-heading">
+      <section id="faq" className="py-20 lg:py-32 bg-white scroll-mt-20" aria-labelledby="faq-heading">
         <Container>
           <motion.div
             initial={{ opacity: 0, y: 20 }}

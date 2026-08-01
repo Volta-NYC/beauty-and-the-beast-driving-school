@@ -37,12 +37,6 @@ export default function CTA({
       {/* Background SVG overlays */}
       <div className="absolute inset-0 bg-[url('/geometric-pattern.svg')] opacity-[0.04] bg-repeat pointer-events-none" />
 
-      {/* Golden glow behind text - larger and more prominent */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] rounded-full bg-brand-secondary/20 blur-[150px] pointer-events-none animate-glow-pulse" />
-
-      {/* Secondary subtle glow */}
-      <div className="absolute top-1/3 right-1/4 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full bg-brand-accent/10 blur-[120px] pointer-events-none" />
-
       <div className="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 text-center z-10">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
@@ -74,7 +68,7 @@ export default function CTA({
           {secondaryText && secondaryHref && (
             <Button variant="outline" size="xl" className="w-full sm:w-auto border-white/10 bg-white/5 text-white hover:bg-white/10 hover:text-white rounded-full font-medium" asChild>
               <a href={secondaryHref} className="flex items-center justify-center gap-2">
-                <Phone className="h-4.5 w-4.5 text-brand-secondary" />
+                <Phone className="h-4 w-4 text-brand-secondary" />
                 {secondaryText}
               </a>
             </Button>

@@ -136,9 +136,9 @@ export default function TermsPage() {
                 <p>To the maximum extent permitted by law, our total liability for any claims arising from our services shall not exceed the fees paid for the specific service in question. We are not liable for indirect, incidental, special, or consequential damages.</p>
               </section>
 
-              <section>
+              <section id="privacy" className="scroll-mt-20">
                 <h2 className="text-2xl font-bold text-brand-primary mb-4">9. Privacy</h2>
-                <p>Your privacy is important. See our <Link href="/privacy" className="text-brand-secondary hover:underline">Privacy Policy</Link> for how we collect, use, and protect your information.</p>
+                <p>Your privacy is important. Contact us for details about how we collect, use, and protect your information.</p>
               </section>
 
               <section>

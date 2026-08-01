@@ -45,11 +45,12 @@ const footerLinks = {
     { name: "Passport Photos", href: "/services#passport" },
     { name: "Marriage Officiant (NY/CT)", href: "/services#marriage" },
     { name: "Pro-Se Divorce Service", href: "/services#divorce" },
+    { name: "Document Translation", href: "/services#translation" },
   ],
   company: [
     { name: "About Us", href: "/about" },
-    { name: "Locations", href: "/locations" },
-    { name: "FAQ", href: "/faq" },
+    { name: "Locations", href: "/contact#locations" },
+    { name: "FAQ", href: "/contact#faq" },
     { name: "Blog", href: "/blog" },
     { name: "Student Responsibilities", href: "/student-responsibilities" },
   ],
@@ -100,7 +101,7 @@ export default function Footer() {
                   className="flex h-9 w-9 items-center justify-center rounded-xl bg-slate-900 border border-white/5 text-slate-400 transition-all hover:bg-brand-secondary hover:text-slate-950 hover:scale-105 hover:shadow-[0_0_15px_rgba(201,151,75,0.4)]"
                   aria-label={social.ariaLabel}
                 >
-                  <social.icon className="h-4.5 w-4.5" aria-hidden="true" />
+                  <social.icon className="h-4 w-4" aria-hidden="true" />
                 </a>
               ))}
             </div>
@@ -112,7 +113,7 @@ export default function Footer() {
             <ul className="space-y-2.5" role="list">
               {footerLinks.drivingSchool.map((link) => (
                 <li key={link.name}>
-                  <Link href={link.href} className="text-slate-350 hover:text-brand-secondary transition-colors text-xs font-sans">
+                  <Link href={link.href} className="text-slate-400 hover:text-brand-secondary transition-colors text-xs font-sans">
                     {link.name}
                   </Link>
                 </li>
@@ -125,7 +126,7 @@ export default function Footer() {
             <ul className="space-y-2.5" role="list">
               {footerLinks.taxServices.map((link) => (
                 <li key={link.name}>
-                  <Link href={link.href} className="text-slate-350 hover:text-brand-secondary transition-colors text-xs font-sans">
+                  <Link href={link.href} className="text-slate-400 hover:text-brand-secondary transition-colors text-xs font-sans">
                     {link.name}
                   </Link>
                 </li>
@@ -138,7 +139,7 @@ export default function Footer() {
             <ul className="space-y-2.5" role="list">
               {footerLinks.additionalServices.map((link) => (
                 <li key={link.name}>
-                  <Link href={link.href} className="text-slate-350 hover:text-brand-secondary transition-colors text-xs font-sans">
+                  <Link href={link.href} className="text-slate-400 hover:text-brand-secondary transition-colors text-xs font-sans">
                     {link.name}
                   </Link>
                 </li>
@@ -149,7 +150,7 @@ export default function Footer() {
           {/* Locations & Contact Info */}
           <div className="space-y-4" aria-labelledby="footer-locations-heading">
             <h3 id="footer-locations-heading" className="text-xs font-bold uppercase tracking-wider text-slate-400 font-sans">Locations</h3>
-            <address className="space-y-4 not-italic text-slate-350 font-sans text-xs">
+            <address className="space-y-4 not-italic text-slate-400 font-sans text-xs">
               {contactInfo.locations.map((loc) => (
                 <div key={loc.name} className="space-y-1">
                   <div className="flex items-center gap-1.5 font-semibold text-white">
@@ -179,7 +180,7 @@ export default function Footer() {
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
             <Link href="/terms" className="hover:text-white transition-colors">Terms</Link>
             <Link href="/student-responsibilities" className="hover:text-white transition-colors">Responsibilities</Link>
-            <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>
+            <Link href="/terms#privacy" className="hover:text-white transition-colors">Privacy</Link>
             <a
               href="https://nyc.voltanpo.org"
               target="_blank"

@@ -257,7 +257,7 @@ export default function Contact() {
                         value={formData[field.name as keyof typeof formData] as string}
                         onChange={handleChange}
                         className={cn(
-                          "bg-white/4 border-white/10 text-white placeholder-slate-500 focus-visible:ring-brand-secondary",
+                          "bg-white/5 border-white/10 text-white placeholder-slate-500 focus-visible:ring-brand-secondary",
                           errors[field.name] && "border-red-500/80 focus-visible:ring-red-500"
                         )}
                         aria-invalid={!!errors[field.name]}
@@ -314,7 +314,7 @@ export default function Contact() {
                     value={formData.message}
                     onChange={handleChange}
                     className={cn(
-                      "bg-white/4 border-white/10 text-white placeholder-slate-500 focus-visible:ring-brand-secondary",
+                      "bg-white/5 border-white/10 text-white placeholder-slate-500 focus-visible:ring-brand-secondary",
                       errors.message && "border-red-500/80 focus-visible:ring-red-500"
                     )}
                     aria-invalid={!!errors.message}

@@ -279,7 +279,7 @@ export default function DrivingSchoolPage() {
                 <Link href="/contact">Book Your First Lesson</Link>
               </Button>
               <Button variant="outline" size="xl" className="w-full border-white/30 bg-transparent text-white hover:bg-white/10 hover:text-white sm:w-auto" asChild>
-                <Link href="/locations">View Locations</Link>
+                <Link href="/contact#locations">View Locations</Link>
               </Button>
             </div>
           </motion.div>

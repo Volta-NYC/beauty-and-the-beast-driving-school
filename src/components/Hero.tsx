@@ -26,18 +26,8 @@ export default function Hero() {
       {/* Background Gradient Mesh */}
       <div className="absolute inset-0 bg-gradient-to-tr from-brand-primary via-[#0f172a] to-[#1e1b4b]" aria-hidden="true" />
 
-      {/* Animated Gradient Blobs */}
-      <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full bg-brand-secondary/15 blur-[80px] animate-float-orb" aria-hidden="true" />
-      <div className="absolute bottom-1/4 right-1/4 translate-x-1/2 translate-y-1/2 w-96 h-96 rounded-full bg-brand-accent/10 blur-[100px] animate-glow-pulse" aria-hidden="true" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-brand-secondary/5 blur-[150px] pointer-events-none" aria-hidden="true" />
-
       {/* Seamless Geometric Pattern Overlay */}
       <div className="absolute inset-0 bg-[url('/geometric-pattern.svg')] opacity-[0.04] bg-repeat pointer-events-none" aria-hidden="true" />
-
-      {/* Floating decorative orbs */}
-      <div className="absolute top-20 right-20 w-24 h-24 rounded-full bg-brand-secondary/10 blur-[40px] animate-float-orb" style={{ animationDelay: "0s" }} aria-hidden="true" />
-      <div className="absolute bottom-20 left-20 w-16 h-16 rounded-full bg-brand-accent/10 blur-[30px] animate-float-orb" style={{ animationDelay: "2s" }} aria-hidden="true" />
-      <div className="absolute top-1/2 left-10 w-12 h-12 rounded-full bg-brand-goldLight/10 blur-[20px] animate-float-orb" style={{ animationDelay: "4s" }} aria-hidden="true" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full z-10">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
@@ -99,7 +89,7 @@ export default function Hero() {
             >
               {trustBadges.map((badge) => (
                 <div key={badge.text} className="flex items-center gap-2 text-slate-400">
-                  <badge.icon className="h-4.5 w-4.5 text-brand-secondary flex-shrink-0" aria-hidden="true" />
+                  <badge.icon className="h-4 w-4 text-brand-secondary flex-shrink-0" aria-hidden="true" />
                   <span className="text-xs sm:text-sm font-medium">{badge.text}</span>
                 </div>
               ))}
@@ -112,7 +102,7 @@ export default function Hero() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.25, duration: 0.8 }}
-              className="relative w-full max-w-[440px] aspect-[4/5] rounded-3xl overflow-hidden glass-panel-gold p-4 flex flex-col justify-between shadow-2xl group"
+              className="relative w-full max-w-[440px] aspect-[4/5] rounded-lg overflow-hidden glass-panel-gold p-4 flex flex-col justify-between shadow-2xl group"
             >
               {/* Subtle pattern background in the card */}
               <div className="absolute inset-0 bg-[url('/geometric-pattern.svg')] opacity-[0.03] bg-repeat pointer-events-none" />
@@ -149,9 +139,9 @@ export default function Hero() {
                   animate={{ opacity: 1, scale: 1, y: 0 }}
                   transition={{ delay: 0.6 + idx * 0.15, duration: 0.6, ease: "easeOut" }}
                   className={cn(
-                    "absolute bg-slate-900/90 border border-white/15 rounded-2xl p-3 shadow-xl backdrop-blur-md z-20",
-                    idx === 0 && "-left-6 top-[25%] animate-float-orb",
-                    idx === 1 && "-right-6 bottom-[20%]",
+                    "absolute hidden sm:block bg-slate-900/90 border border-white/15 rounded-lg p-3 shadow-xl backdrop-blur-md z-20",
+                    idx === 0 && "left-3 top-[25%] lg:-left-6",
+                    idx === 1 && "right-3 bottom-[20%] lg:-right-6",
                     idx === 2 && "left-1/2 -translate-x-1/2 top-4"
                   )}
                 >

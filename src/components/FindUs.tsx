@@ -69,7 +69,7 @@ export default function FindUs() {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ delay: idx * 0.1, duration: 0.6 }}
             >
-              <div className="glass-panel-gold rounded-3xl p-6 md:p-8 flex flex-col justify-between h-full hover:border-brand-secondary/40 transition-all duration-300 hover:shadow-lg">
+              <div className="glass-panel-gold rounded-lg p-6 md:p-8 flex flex-col justify-between h-full hover:border-brand-secondary/40 transition-all duration-300 hover:shadow-lg">
                 <div>
                   <div className="flex justify-between items-start mb-6">
                     <span className="px-3 py-1 rounded-full bg-brand-secondary/10 border border-brand-secondary/20 text-xs text-brand-secondary font-sans font-semibold">
@@ -99,7 +99,7 @@ export default function FindUs() {
 
                 <div className="flex flex-col sm:flex-row justify-between items-stretch sm:items-center border-t border-white/5 pt-4 gap-4">
                   <a href={`tel:${loc.phone.replace(/\D/g, '')}`} className="flex items-center gap-2 text-slate-300 hover:text-brand-secondary transition-colors font-sans text-sm font-semibold">
-                    <Phone className="h-4.5 w-4.5 text-brand-secondary" />
+                    <Phone className="h-4 w-4 text-brand-secondary" />
                     <span>Call Location: {loc.phone}</span>
                   </a>
                 </div>

@@ -49,7 +49,6 @@ export default function Services() {
     <section className="relative py-24 lg:py-32 bg-brand-primary overflow-hidden" aria-labelledby="services-heading">
       {/* Subtle Pattern & Blob background */}
       <div className="absolute inset-0 bg-[url('/geometric-pattern.svg')] opacity-[0.03] bg-repeat pointer-events-none" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-brand-secondary/5 blur-[120px] pointer-events-none" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
@@ -82,7 +81,7 @@ export default function Services() {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ delay: idx * 0.1, duration: 0.6 }}
             >
-              <div className="h-full glass-panel-gold rounded-3xl p-8 flex flex-col justify-between hover:border-brand-secondary/40 transition-all duration-300 hover:shadow-[0_0_30px_rgba(201,151,75,0.1)] group">
+              <div className="h-full glass-panel-gold rounded-lg p-6 sm:p-8 flex flex-col justify-between hover:border-brand-secondary/40 transition-all duration-300 hover:shadow-[0_0_30px_rgba(201,151,75,0.1)] group">
                 <div>
                   <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-brand-secondary to-brand-goldLight text-slate-950 flex items-center justify-center mb-6">
                     <cat.icon className="h-7 w-7" aria-hidden="true" />
@@ -96,7 +95,7 @@ export default function Services() {
                   <ul className="space-y-3 mb-8" role="list">
                     {cat.bullets.map((bullet) => (
                       <li key={bullet} className="flex items-start gap-3 text-slate-300 text-xs sm:text-sm">
-                        <CheckCircle className="h-4.5 w-4.5 text-brand-secondary flex-shrink-0 mt-0.5" aria-hidden="true" />
+                        <CheckCircle className="h-4 w-4 text-brand-secondary flex-shrink-0 mt-0.5" aria-hidden="true" />
                         <span>{bullet}</span>
                       </li>
                     ))}
@@ -137,7 +136,7 @@ export default function Services() {
                 transition={{ delay: idx * 0.05, duration: 0.5 }}
               >
                 <Link href={service.href} className="block h-full group">
-                  <Card className="h-full bg-slate-900/40 border border-white/5 hover:border-brand-secondary/35 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg backdrop-blur-sm">
+                  <Card className="h-full bg-slate-900/40 text-white border border-white/5 hover:border-brand-secondary/35 rounded-lg p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg backdrop-blur-sm">
                     <CardContent className="p-0 flex flex-col justify-between h-full">
                       <div>
                         <div className="w-10 h-10 rounded-xl bg-slate-900 border border-white/10 text-brand-secondary flex items-center justify-center mb-4 transition-all duration-300 group-hover:scale-110 group-hover:bg-brand-secondary group-hover:text-slate-950">
