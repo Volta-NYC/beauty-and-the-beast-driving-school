@@ -182,12 +182,12 @@ export default function Footer() {
             <Link href="/student-responsibilities" className="hover:text-white transition-colors">Responsibilities</Link>
             <Link href="/terms#privacy" className="hover:text-white transition-colors">Privacy</Link>
             <a
-              href="https://nyc.voltanpo.org"
+              href="https://www.novusnyc.org/"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1 hover:text-white transition-colors"
+              className="flex items-center gap-1 text-[#F6B78D] hover:text-[#F6B78D] transition-colors"
             >
-              Website by Volta NYC
+              Made by Novus
               <ArrowRight className="h-3 w-3" aria-hidden="true" />
             </a>
           </div>
