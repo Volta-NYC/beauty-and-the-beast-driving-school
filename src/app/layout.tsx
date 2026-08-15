@@ -58,7 +58,7 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  themeColor: "#0B1120",
+  themeColor: "#f3efe5",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
@@ -77,9 +77,9 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://www.google.com" />
         <link rel="dns-prefetch" href="https://maps.google.com" />
       </head>
-      <body className="min-h-screen flex flex-col bg-brand-primary text-brand-text">
+      <body className="min-h-screen flex flex-col">
         <Navbar />
-        <main className="flex-1 pt-16">{children}</main>
+        <main className="flex-1">{children}</main>
         <Footer />
         <script
           type="application/ld+json"
