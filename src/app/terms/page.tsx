@@ -3,11 +3,13 @@
 import { Container } from "@/components/ui/container"
 import { motion } from "framer-motion"
 import Link from "next/link"
+import PageHero from "@/components/PageHero"
 
 export default function TermsPage() {
   return (
     <>
-      <section className="relative min-h-[50vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-brand-primary via-slate-900 to-slate-800" aria-labelledby="page-heading">
+      <PageHero eyebrow="The details" title={<>Terms, written<br /><em>plainly.</em></>} description="Everything you need to know before booking a lesson, appointment, or service with our team." detail="Effective March 2022" mode="paper" />
+      <section className="hidden relative min-h-[50vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-brand-primary via-slate-900 to-slate-800" aria-labelledby="page-heading">
         <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-5" aria-hidden="true" />
         <Container className="relative py-20 lg:py-32 text-center">
           <motion.div

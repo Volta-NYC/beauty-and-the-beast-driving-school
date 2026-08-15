@@ -11,6 +11,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Container } from "@/components/ui/container"
 import { cn } from "@/lib/utils"
 import Link from "next/link"
+import PageHero from "@/components/PageHero"
 
 const contactInfo = {
   phone: "(917) 737-7623",
@@ -139,7 +140,8 @@ export default function ContactPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative min-h-[50vh] flex items-center justify-center overflow-hidden pt-16 bg-gradient-to-br from-brand-primary via-slate-900 to-slate-800" aria-labelledby="page-heading">
+      <PageHero eyebrow="Contact & locations" title={<>Come by. Call us.<br /><em>We’re here.</em></>} description="Have a question or ready to get started? Our Bronx team can help you find the right service and the right next step." primary={{ label: "Get in touch", href: "#contact-form" }} secondary={{ label: "Find a location", href: "#locations" }} detail="Two Bronx locations" mode="signal" />
+      <section className="hidden relative min-h-[50vh] flex items-center justify-center overflow-hidden pt-16 bg-gradient-to-br from-brand-primary via-slate-900 to-slate-800" aria-labelledby="page-heading">
         <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-5" aria-hidden="true" />
         <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full bg-brand-secondary/15 blur-[80px] animate-float-orb" aria-hidden="true" />
         <div className="absolute bottom-1/4 right-1/4 translate-x-1/2 translate-y-1/2 w-96 h-96 rounded-full bg-brand-accent/10 blur-[100px] animate-glow-pulse" aria-hidden="true" />

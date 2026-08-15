@@ -8,6 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { cn } from "@/lib/utils"
 import { Container } from "@/components/ui/container"
 import CTA from "@/components/CTA"
+import PageHero from "@/components/PageHero"
 
 const taxServices = [
   {
@@ -71,7 +72,8 @@ const additionalServices = [
 export default function TaxServicesPage() {
   return (
     <>
-      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden pt-16" aria-labelledby="hero-heading">
+      <PageHero eyebrow="Porrata Tax Services" title={<>Make tax season<br /><em>feel manageable.</em></>} description="Clear guidance, careful preparation, and the real answers you need—from first-time filings to small-business returns." primary={{ label: "Talk to a preparer", href: "/contact" }} secondary={{ label: "Explore tax services", href: "#prep" }} detail="Bronx · Year-round support" mode="ledger" />
+      <section className="hidden relative min-h-[60vh] flex items-center justify-center overflow-hidden pt-16" aria-labelledby="hero-heading">
         <div className="absolute inset-0 bg-gradient-to-br from-brand-primary via-slate-900 to-slate-800" aria-hidden="true" />
         <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-5" aria-hidden="true" />
         <Container>

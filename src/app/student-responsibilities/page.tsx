@@ -3,11 +3,13 @@
 import { Container } from "@/components/ui/container"
 import { motion } from "framer-motion"
 import Link from "next/link"
+import PageHero from "@/components/PageHero"
 
 export default function StudentResponsibilitiesPage() {
   return (
     <div>
-      <section className="relative min-h-[50vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-brand-primary via-slate-900 to-slate-800" aria-labelledby="page-heading">
+      <PageHero eyebrow="For our students" title={<>A good lesson starts<br /><em>with both of us.</em></>} description="A clear overview of what to expect so every lesson is safe, productive, and respectful of your time." detail="Before you book" mode="signal" />
+      <section className="hidden relative min-h-[50vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-brand-primary via-slate-900 to-slate-800" aria-labelledby="page-heading">
         <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-5" aria-hidden="true" />
         <Container className="relative py-20 lg:py-32 text-center">
           <motion.div

@@ -1,22 +1,7 @@
 import type { Metadata, Viewport } from "next"
 import "./globals.css"
-import { Cormorant_Garamond, DM_Sans } from "next/font/google"
 import Navbar from "@/components/Navbar"
 import Footer from "@/components/Footer"
-
-const cormorant = Cormorant_Garamond({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  display: "swap",
-  variable: "--font-serif",
-})
-
-const dmSans = DM_Sans({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
-  display: "swap",
-  variable: "--font-sans",
-})
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.porratax.com"),
@@ -70,7 +55,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${cormorant.variable} ${dmSans.variable} antialiased`}>
+    <html lang="en" className="antialiased">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

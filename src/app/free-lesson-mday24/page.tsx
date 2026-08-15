@@ -6,11 +6,13 @@ import { Car, Gift, Calendar, CheckCircle, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Container } from "@/components/ui/container"
+import PageHero from "@/components/PageHero"
 
 export default function FreeLessonPromoPage() {
   return (
     <>
-      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden pt-16 bg-gradient-to-br from-brand-primary via-slate-900 to-slate-800" aria-labelledby="page-heading">
+      <PageHero eyebrow="A special welcome" title={<>Your first move<br /><em>starts here.</em></>} description="A limited opportunity to get behind the wheel and see what focused, supportive instruction feels like." primary={{ label: "Claim your lesson", href: "#details-heading" }} secondary={{ label: "View packages", href: "#packages-heading" }} detail="Limited availability" mode="road" />
+      <section className="hidden relative min-h-[60vh] flex items-center justify-center overflow-hidden pt-16 bg-gradient-to-br from-brand-primary via-slate-900 to-slate-800" aria-labelledby="page-heading">
         <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-5" aria-hidden="true" />
         <Container className="relative py-20 lg:py-32 text-center">
           <motion.div

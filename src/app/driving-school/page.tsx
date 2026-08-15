@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { Container } from "@/components/ui/container"
 import CTA from "@/components/CTA"
+import PageHero from "@/components/PageHero"
 
 const packages = [
   {
@@ -250,7 +251,8 @@ const roadTest = {
 export default function DrivingSchoolPage() {
   return (
     <>
-      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-brand-primary via-slate-900 to-slate-800" aria-labelledby="page-heading">
+      <PageHero eyebrow="Driving school" title={<>Find your footing.<br /><em>Then take the wheel.</em></>} description="Practical, patient lessons for new drivers, returners, and anyone preparing for the New York road test." primary={{ label: "Book your first lesson", href: "/contact" }} secondary={{ label: "See our locations", href: "/contact#locations" }} detail="NYS DMV licensed" mode="road" />
+      <section className="hidden relative min-h-[60vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-brand-primary via-slate-900 to-slate-800" aria-labelledby="page-heading">
         <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-5" aria-hidden="true" />
         <Container className="relative py-20 lg:py-32 text-center">
           <motion.div

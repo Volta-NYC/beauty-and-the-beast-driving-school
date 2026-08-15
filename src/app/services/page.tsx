@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { cn } from "@/lib/utils"
 import CTA from "@/components/CTA"
+import PageHero from "@/components/PageHero"
 
 const additionalServices = [
   {
@@ -51,7 +52,8 @@ const additionalServices = [
 export default function ServicesPage() {
   return (
     <>
-      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-brand-primary via-slate-900 to-slate-800" aria-labelledby="page-heading">
+      <PageHero eyebrow="More ways we help" title={<>The everyday things<br /><em>under one roof.</em></>} description="Notary work, document services, passport photos, and more—handled locally, clearly, and without the runaround." primary={{ label: "Visit us", href: "/contact" }} secondary={{ label: "Browse services", href: "#notary" }} detail="Walk-ins welcome" mode="orbit" />
+      <section className="hidden relative min-h-[60vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-brand-primary via-slate-900 to-slate-800" aria-labelledby="page-heading">
         <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-5" aria-hidden="true" />
         <Container className="relative py-20 lg:py-32 text-center">
           <motion.div

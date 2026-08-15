@@ -7,11 +7,13 @@ import { Calendar, Clock, Tag, ArrowRight, ChevronLeft, ChevronRight } from "luc
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import PageHero from "@/components/PageHero"
 
 export default function BlogPage() {
   return (
     <>
-      <section className="relative min-h-[50vh] flex items-center justify-center overflow-hidden pt-16 bg-gradient-to-br from-brand-primary via-slate-900 to-slate-800" aria-labelledby="page-heading">
+      <PageHero eyebrow="Notes from the road" title={<>Helpful things to<br /><em>keep you moving.</em></>} description="Straightforward advice on driving, taxes, and the real-world details that come with both." detail="Tips · guides · updates" mode="paper" />
+      <section className="hidden relative min-h-[50vh] flex items-center justify-center overflow-hidden pt-16 bg-gradient-to-br from-brand-primary via-slate-900 to-slate-800" aria-labelledby="page-heading">
         <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-5" aria-hidden="true" />
         <Container className="relative py-16 lg:py-24 text-center">
           <motion.div
